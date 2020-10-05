@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{3FB52FE1-F789-418C-BCAD-500547CEC7C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>KLADR-viewer v4</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>4.0.6.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;UNICODE TRUE WIN32 _MSC_VER SQLITE_ASCII SQLITE_MUTEX_W32 SQLITE_THREADSAFE SQLITE_OMIT_AUTHORIZATION SQLITE_OMIT_DEPRECATED SQLITE_OMIT_GET_TABLE SQLITE_OMIT_INCRBLOB SQLITE_OMIT_LOOKASIDE SQLITE_OMIT_SHARED_CACHE SQLITE_OMIT_UTF16 SQLITE_OMIT_WAL VDBE_PROFILE_OFF NET_2_0 NET_35 SQLITE_DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>0168 ; 0169; 0414; 0618; 0649</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;TRUE WIN32 _MSC_VER NDEBUG SQLITE_ASCII SQLITE_ENABLE_COLUMN_METADATA SQLITE_MUTEX_W32 SQLITE_THREADSAFE SQLITE_OMIT_AUTHORIZATION SQLITE_OMIT_DEPRECATED SQLITE_OMIT_GET_TABLE SQLITE_OMIT_INCRBLOB SQLITE_OMIT_LOOKASIDE SQLITE_OMIT_SHARED_CACHE SQLITE_OMIT_UTF16 SQLITE_OMIT_WAL VDBE_PROFILE_OFF</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>0168 ; 0169; 0414; 0618; 0649</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>KLADR_viewer_v4</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Datbase.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>KLADR_viewer_v4.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>841F741D11778D5E453F84E983FA17E6639FCFC1</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>KLADR-viewer v4_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="KLADR-viewer v4_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Datbase.ico" />
+    <Content Include="Resources\Compile.png" />
+    <Content Include="Resources\Copy.png" />
+    <Content Include="Resources\Datbase.ico" />
+    <Content Include="Resources\deSelectALL.bmp" />
+    <Content Include="Resources\Disk-download.ico" />
+    <Content Include="Resources\Info.png" />
+    <Content Include="Resources\invSelect.bmp" />
+    <Content Include="Resources\News-Info.png" />
+    <Content Include="Resources\Search.png" />
+    <Content Include="Resources\selectALL.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C#SQLite\Client\SqliteClientFactory.cs" />
+    <Compile Include="C#SQLite\Client\SqliteCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="C#SQLite\Client\SqliteCommandBuilder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="C#SQLite\Client\SqliteConnection.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="C#SQLite\Client\SqliteConnectionStringBuilder.cs" />
+    <Compile Include="C#SQLite\Client\SqliteDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="C#SQLite\Client\SqliteDataReader.cs" />
+    <Compile Include="C#SQLite\Client\SqliteDataSourceEnumerator.cs" />
+    <Compile Include="C#SQLite\Client\SqliteError.cs" />
+    <Compile Include="C#SQLite\Client\SqliteExceptions.cs" />
+    <Compile Include="C#SQLite\Client\SqliteParameter.cs" />
+    <Compile Include="C#SQLite\Client\SqliteParameterCollection.cs" />
+    <Compile Include="C#SQLite\Client\SqliteRowUpdatedEventArgs.cs" />
+    <Compile Include="C#SQLite\Client\SqliteRowUpdatedEventHandler.cs" />
+    <Compile Include="C#SQLite\Client\SqliteRowUpdatingEventArgs.cs" />
+    <Compile Include="C#SQLite\Client\SqliteRowUpdatingEventHandler.cs" />
+    <Compile Include="C#SQLite\Client\SqliteTransaction.cs" />
+    <Compile Include="C#SQLite\Core\alter_c.cs" />
+    <Compile Include="C#SQLite\Core\analyze_c.cs" />
+    <Compile Include="C#SQLite\Core\attach_c.cs" />
+    <Compile Include="C#SQLite\Core\auth_c.cs" />
+    <Compile Include="C#SQLite\Core\backup_c.cs" />
+    <Compile Include="C#SQLite\Core\bitvec_c.cs" />
+    <Compile Include="C#SQLite\Core\btmutex_c.cs" />
+    <Compile Include="C#SQLite\Core\BtreeInt_h.cs" />
+    <Compile Include="C#SQLite\Core\btree_c.cs" />
+    <Compile Include="C#SQLite\Core\Btree_h.cs" />
+    <Compile Include="C#SQLite\Core\build_c.cs" />
+    <Compile Include="C#SQLite\Core\callback_c.cs" />
+    <Compile Include="C#SQLite\Core\complete_c.cs" />
+    <Compile Include="C#SQLite\Core\crypto.cs" />
+    <Compile Include="C#SQLite\Core\ctime_c.cs" />
+    <Compile Include="C#SQLite\Core\date_c.cs" />
+    <Compile Include="C#SQLite\Core\Delegates.cs" />
+    <Compile Include="C#SQLite\Core\delete_c.cs" />
+    <Compile Include="C#SQLite\Core\expr_c.cs" />
+    <Compile Include="C#SQLite\Core\fault_c.cs" />
+    <Compile Include="C#SQLite\Core\fkey_c.cs" />
+    <Compile Include="C#SQLite\Core\func_c.cs" />
+    <Compile Include="C#SQLite\Core\global_c.cs" />
+    <Compile Include="C#SQLite\Core\hash_c.cs" />
+    <Compile Include="C#SQLite\Core\Hash_h.cs" />
+    <Compile Include="C#SQLite\Core\hwtime_c.cs" />
+    <Compile Include="C#SQLite\Core\insert_c.cs" />
+    <Compile Include="C#SQLite\Core\journal_c.cs" />
+    <Compile Include="C#SQLite\Core\keywordhash_h.cs" />
+    <Compile Include="C#SQLite\Core\legacy_c.cs" />
+    <Compile Include="C#SQLite\Core\loadext_c.cs" />
+    <Compile Include="C#SQLite\Core\main_c.cs" />
+    <Compile Include="C#SQLite\Core\malloc_c.cs" />
+    <Compile Include="C#SQLite\Core\memjournal_c.cs" />
+    <Compile Include="C#SQLite\Core\mem_Pool.cs" />
+    <Compile Include="C#SQLite\Core\mutex_c.cs" />
+    <Compile Include="C#SQLite\Core\mutex_h.cs" />
+    <Compile Include="C#SQLite\Core\mutex_noop_c.cs" />
+    <Compile Include="C#SQLite\Core\mutex_w32.cs" />
+    <Compile Include="C#SQLite\Core\notify_c.cs" />
+    <Compile Include="C#SQLite\Core\opcodes_c.cs" />
+    <Compile Include="C#SQLite\Core\opcodes_h.cs" />
+    <Compile Include="C#SQLite\Core\os_c.cs" />
+    <Compile Include="C#SQLite\Core\os_common_h.cs" />
+    <Compile Include="C#SQLite\Core\os_h.cs" />
+    <Compile Include="C#SQLite\Core\os_win_c.cs" />
+    <Compile Include="C#SQLite\Core\pager_c.cs" />
+    <Compile Include="C#SQLite\Core\pager_h.cs" />
+    <Compile Include="C#SQLite\Core\parse_c.cs" />
+    <Compile Include="C#SQLite\Core\parse_h.cs" />
+    <Compile Include="C#SQLite\Core\pcache1_c.cs" />
+    <Compile Include="C#SQLite\Core\pcache_c.cs" />
+    <Compile Include="C#SQLite\Core\pcache_h.cs" />
+    <Compile Include="C#SQLite\Core\pragma_c.cs" />
+    <Compile Include="C#SQLite\Core\prepare_c.cs" />
+    <Compile Include="C#SQLite\Core\printf_c.cs" />
+    <Compile Include="C#SQLite\Core\random_c.cs" />
+    <Compile Include="C#SQLite\Core\resolve_c.cs" />
+    <Compile Include="C#SQLite\Core\rowset_c.cs" />
+    <Compile Include="C#SQLite\Core\select_c.cs" />
+    <Compile Include="C#SQLite\Core\sqlite3_h.cs" />
+    <Compile Include="C#SQLite\Core\sqliteInt_h.cs" />
+    <Compile Include="C#SQLite\Core\sqliteLimit_h.cs" />
+    <Compile Include="C#SQLite\Core\status_c.cs" />
+    <Compile Include="C#SQLite\Core\table_c.cs" />
+    <Compile Include="C#SQLite\Core\tokenize_c.cs" />
+    <Compile Include="C#SQLite\Core\trigger_c.cs" />
+    <Compile Include="C#SQLite\Core\update_c.cs" />
+    <Compile Include="C#SQLite\Core\utf_c.cs" />
+    <Compile Include="C#SQLite\Core\util_c.cs" />
+    <Compile Include="C#SQLite\Core\vacuum_c.cs" />
+    <Compile Include="C#SQLite\Core\vdbeapi_c.cs" />
+    <Compile Include="C#SQLite\Core\vdbeaux_c.cs" />
+    <Compile Include="C#SQLite\Core\vdbeblob_c.cs" />
+    <Compile Include="C#SQLite\Core\VdbeInt_h.cs" />
+    <Compile Include="C#SQLite\Core\vdbemem_c.cs" />
+    <Compile Include="C#SQLite\Core\vdbetrace_c.cs" />
+    <Compile Include="C#SQLite\Core\vdbe_c.cs" />
+    <Compile Include="C#SQLite\Core\Vdbe_h.cs" />
+    <Compile Include="C#SQLite\Core\vtab_c.cs" />
+    <Compile Include="C#SQLite\Core\walker_c.cs" />
+    <Compile Include="C#SQLite\Core\wal_c.cs" />
+    <Compile Include="C#SQLite\Core\wal_h.cs" />
+    <Compile Include="C#SQLite\Core\where_c.cs" />
+    <Compile Include="C#SQLite\Core\_Custom.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreateDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreateDB.Designer.cs">
+      <DependentUpon>FormCreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKLADRtoCSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKLADRtoCSV.Designer.cs">
+      <DependentUpon>FormKLADRtoCSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="my classes\CachinEgngine.cs" />
+    <Compile Include="my classes\ConvertDBFtoCSV.cs" />
+    <Compile Include="my classes\databases.cs" />
+    <Compile Include="my classes\DictionaryConnections.cs" />
+    <Compile Include="my classes\global.cs" />
+    <Compile Include="my classes\KLADR.cs" />
+    <Compile Include="my classes\language.cs" />
+    <Compile Include="my classes\workDataBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreateDB.resx">
+      <DependentUpon>FormCreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKLADRtoCSV.resx">
+      <DependentUpon>FormKLADRtoCSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

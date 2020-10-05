@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="toolTipCreateNewDataBase.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="textBoxSelectFolder.ToolTip" xml:space="preserve">
+    <value>Composition and structure of the classifier
+
+On magnetic media, a classifier is designed in the following form DBF-files:
+File Kladr.dbf - contains records with the objects of the first four classification levels (regions, districts (ulus), the city, towns, village councils, rural areas);
+File Street.dbf - contains records with the objects of the fifth level of classification (the streets of cities and towns);
+File Doma.dbf - contains records with the objects of the sixth level of classification (number of houses streets of cities and towns);
+File Flat.dbf - contains records with the objects of the seventh level of classification (number of apartments houses);
+File Socrbase.dbf - contains records with short names of types of targeted sites;
+Altnames.dbf-file contains information about compliance with codes of records old and new names of targeted objects, as well as information about the targeted object code compliance before and after their reassignment.</value>
+  </data>
+  <data name="buttonSelectFolder.ToolTip" xml:space="preserve">
+    <value>Composition and structure of the classifier
+
+On magnetic media, a classifier is designed in the following form DBF-files:
+File Kladr.dbf - contains records with the objects of the first four classification levels (regions, districts (ulus), the city, towns, village councils, rural areas);
+File Street.dbf - contains records with the objects of the fifth level of classification (the streets of cities and towns);
+File Doma.dbf - contains records with the objects of the sixth level of classification (number of houses streets of cities and towns);
+File Flat.dbf - contains records with the objects of the seventh level of classification (number of apartments houses);
+File Socrbase.dbf - contains records with short names of types of targeted sites;
+Altnames.dbf-file contains information about compliance with codes of records old and new names of targeted objects, as well as information about the targeted object code compliance before and after their reassignment.</value>
+  </data>
+  <data name="labelFolderGNIVC.ToolTip" xml:space="preserve">
+    <value>Composition and structure of the classifier
+
+On magnetic media, a classifier is designed in the following form DBF-files:
+File Kladr.dbf - contains records with the objects of the first four classification levels (regions, districts (ulus), the city, towns, village councils, rural areas);
+File Street.dbf - contains records with the objects of the fifth level of classification (the streets of cities and towns);
+File Doma.dbf - contains records with the objects of the sixth level of classification (number of houses streets of cities and towns);
+File Flat.dbf - contains records with the objects of the seventh level of classification (number of apartments houses);
+File Socrbase.dbf - contains records with short names of types of targeted sites;
+Altnames.dbf-file contains information about compliance with codes of records old and new names of targeted objects, as well as information about the targeted object code compliance before and after their reassignment.</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AACmoqGkoZ+e96CenvefnZ33npub952amvebmZn3mpiY95iXl/eYlpb3l5WV95eVlfeXlZX3l5WV95aU
+        lPeOioqqn52d9PLs7P/Uz8//1M/P/9TPz//Uz8//1M/P/9TPz//Uz8//4dvb//Xu7v/17u7/7+np//Pt
+        7P/28PD/lZOT9Z+dnfTp4uL/tK6u/7Surv+0rq7/tK6u/7Surv+0rq7/tK6u/8vDw//t5OT/4dnd/0dG
+        sf+Oi8H/7+jo/5WTk/afnZ306ODg/9fOzv/Xzs7/187O/9fOzv/Xzs7/187O/9fOzv/d1NT/5dvb/8vC
+        xf9lZLb/iYWx/+jg4P+Vk5P2np2d8+ji4v/l3d3/5d3d/+Xd3f/l3d3/5d3d/+Xd3f/l3d3/5d3d/+Xd
+        3f/l3d3/0svL/9/X1//o4eH/lJOT9ZSRkePMycn/zsvL/87Ly//Oy8v/zsvL/83Kyv/Mycn/ysjI/8nF
+        xf/HxMT/xcLC/8PBwf/Cv7//vru7/4aDg+ODgoKdsbCw/7OwsP+zsLD/sa6u/66srP+uq6v/SJpK/0Cd
+        RP+koaH/qKWl/7Ctrf+zsLD/s7Cw/6yqqv9+fX2cf39/aKGgoPrVz8//zMTE/8fAwP/Uzs7/UaZT/0TP
+        Zv9Dz2X/QqBG/6qlpf+xq6v/zMTE/9XPz/+WlZX5f39/aAAAAAB/f39osa+v/762tv+9trb/TKNO/1Pb
+        d/9L1V3/P81Q/0PPZf9Cn0b/vLS0/762tv+vra3/f39/aAAAAAAAAAAAAAAAAH9/f2isqqr/SqZN/2Hl
+        hv9q7H//XOJv/0zXXv9AzlH/Q89l/0CeRP+npaX/f39/aAAAAAAAAAAAAAAAAAAAAAAAAAAAKaQpw03U
+        cf9e4X//cfGO/2vtgP9e5HL/Udtq/0LNYv9Ax2T/JZclzgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhh
+        F00XYBdcJZckwmrrj/9z8Ij/be2C/2PqiP8kkyPQFVcUXBRWFFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAB57HqBk5Ij/b+qE/3PwiP9t8ZT/H4EfswAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAefB6gXNp+/2bgef9u6YP/cPGW/yCDH7MAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAH34eoFLQc/9a0mv/Zd54/2vrkf8ghSCzAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9/Ho8/x1f9Qcha/UTKXf1GzGH9IYYgogAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAwAMAAOAHAADgBwAA+B8AAPgf
+        AAD4HwAA+B8AAA==
+</value>
+  </data>
+</root>

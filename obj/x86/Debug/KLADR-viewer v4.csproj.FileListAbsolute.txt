@@ -1,0 +1,21 @@
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\KLADR-viewer v4.exe.config
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\KLADR-viewer v4.exe.manifest
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\KLADR-viewer v4.application
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\KLADR-viewer v4.exe
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\KLADR-viewer v4.pdb
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\user\Downloads\Projects\Addresses Russia\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormAbout.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormCreateDB.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormKLADRtoCSV.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormSearch.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormSettings.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.FormStart.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR_viewer_v4.Properties.Resources.resources
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.csproj.GenerateResource.cache
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.exe.manifest
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.application
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.csproj.CopyComplete
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.exe
+C:\Users\user\Downloads\Projects\Addresses Russia\obj\x86\Debug\KLADR-viewer v4.pdb

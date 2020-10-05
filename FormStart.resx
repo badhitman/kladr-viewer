@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="menuStripStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="создатьToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAERSURBVDhPrZDbSgJRGIXnpewd6jXsjSQvIrwoI0RQMChU
+        0iiDPCGiE3ZCRkvR8VzTeBhnyR5/ccaZNnPhB4t9sdf6Ln5hb8QeathNJFVFKF5C8DqL4ksDVHWGDf7j
+        LHyPg6NjviSaFqlu5yQYR+KpupaIkrMknCxT3Y7v/NYYb0ITK1c3BarbWWhLQ7IR0cTKReyZ6lZ0XYei
+        ztHpK4bAc+h1FgQijzSxMptrGIxVSO0xX3AaStFki7bUMVFmaMm/eJMGfIH/MkGzLep0AXn4h/r3CJV3
+        mS9gn2bY4UY/UzQ7E9TqfeTFtnuB+XAfzSHKr11kSl/uBebDiZ89ZCst3OUkdwL28sIVsE83ock+EIQV
+        2Mz2wxeg6/UAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="открытьToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJHSURBVDhPxZBdSNNhFMb/F110ZZEVhVBgeeHNICiiuggp
+        olAUyyxI0oSaH1QYC3N+tKnp5ubm1JUua5uuqdNKMwr7kApFItTUkWZqVhSVYmao5Nevvy7UoYR3HXh4
+        4XCe33nOKyy3lAY7l9RWMo0O/raWXxEyo5spVYTNvOGyfIRPfW+ptOkXqaPl6T83hcRmExSdgzAz3NVm
+        YWyoYla/B+1M9JtxWLPpaH22JORIjI6gKAMB0jyEimIdo4OlbuaprwVMOOMovammpDADc34qppwUrmnl
+        5Kni3aFlFg2j3y1z5mnRTJccnNIltQhwq0jFry+mOXNtpWZWDx1Z1NhV3C3JwGFOw25SYjVe5oYhiUKd
+        HKMmwQUrMWUw/CF3NnZvvYKqUh1TvUroS3fXe7HXkwidMngTS2t5KLbregSzMY2f3Wr4qKW6LJvGR1rX
+        0MLor8OhKYTJBn/GHvvxrliCTBrsOqXIoOBHh5K+hmSq7FqmexTQHuUytkaKxuNMNgYyVneA4Qd7GKjc
+        hjLaRzxH7gIU6JIZaEvgtk1D8wsxSWecCDgNzWFMvwxm/PkhRmr3Mli1nW9lvjRdWc0Jf+/5jzRmyWmv
+        S+GOLQu6U6BFjPvqKOP1AYw88WOoZif9DgmfLVtxaj1RSLdwNvrkPCA3M54KqxrnvRia9MKcGrUrqFOt
+        5H7qKsqT1mGO9+Lqhc2ELdw+U/r0i+gVZ8hMiCDx3DHORwZyKnQ/hw/uYt9uCTskPvh6e7Fp41rWr/Fg
+        g6eHO+A/lyD8ARfG3mk9fv1YAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="содержаниеToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAJ7SURBVDhPlZH9S1NRGMfvn9CLKRJFP0X0Q1GBYYJR2tRMjVzzjSDTFIsp/mAKSfVTQYlobu6m
+        e3FuaTFJlKBclhNMVpSwRSZiig41X++cbm7eu/vtnuNUhDA88OHAOc/zeZ5zHsZgMDvN5teCyfRKNJla
+        xebmFgJnNLZwTU0vOeme0+tNhKCEp7q6bpzAbCwpmfMHeOyGbQKpMrfiW0OqeQiy5uEdITEkVhJMh9KJ
+        oJUKSEDt2y87QmJCgq0OyHt338HzmVA6w5DPIoe7obZWvSUgP00OjflB6LOCdF9cCmBkdGIT95IHbrcH
+        nMQaH4TD8cMbSmfIGKmAJFs7BboTwQb+gIAqwwDibltxOsOKy0obFEXsMoAaKiAz/peAVpYq5lb240TK
+        B8QqevFEMwjFvVFcKfuNY/KuN1Si0xm3CXTSvuAOYNUv4Jn+O06lfkRUWh8yigcw5vKg8LEL1+7PIlY5
+        tHbgvK6U0WqbNgVdIcEc56fvvZj3DtHX7ZDlDyK7YgTWz5PIeujChZIxnLzlRHhC+1emsdFABSTxfQcP
+        bWYQ03M+LHt5ROV0I7loGOllkyitdkEURWQ/+InjNwZwKL1PjEjqnGFYVie6lwPQ5wpoyBCgvcljYnoF
+        C4tLSLjTDXnFFBSVc7hbNU4FshI7ItN6EXnVhrD4Njuj0TTSDua5Vcwu+PBnfh2vj8dT3Teklo8huXwK
+        OY8GqSCmwIbwlB4cltsCe2PYYqamRvWLZbXB+voGqNUvoFKxBG9dncbrcDj5xAKLcLbQgTN5dqgsQzia
+        +QlH5D3iwaR2Cx3j/xYZ1b5zKmXYpbb+iMSOqf3xlv490Wrl+i3D/AXuQrr3I2wQHQAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="опрограммеToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAALySURBVDhPdZJJTJNRFIUfGw0sNAYQEBJMAY3SAlUGXTCrYSi2tMy1gIBlshQoBSuDGlEXGowI
+        iTFoTCQxLt0QrISxgKAMZZBRMCqoDCIksBCT43vtD8bpJCd5eTnfvfd/9yd/yUVrTwQ1OguP2iYrvwcz
+        Vn4PZ9iZ3RE3nT2X+occZBY0VLLHv37DK6ENASl9CEkzIixnHGLtLAJzjLANfbrBMsRRbsFRnOylDH50
+        QNIIH2kHBCf08Ba1IiarBUn53RCdn4aseB7yyq/wTusGy/5eRFBTzGDP8CYIQvXwPW1AbHYbvm/+wCa1
+        8vII4ssWkVCxjISrKxCe7WJFis0wL9+Ojr3uF9MJj5Mv4CfpRJB8AApNjwlmzr42YYJjypcguvAJkWXz
+        sA5+sk5cdXaE8O9qhYntEIY345i0G8EKI8IzJyFWz0JZ3o2sK72IL1+EjMKRJfMIovc+mWMQZvSyKbTE
+        wqOmMeScEcdlLxGSPISI7ClEF76HXDeG5ZUNLCyvI650EuHFcwjIm8GRjFEclL+GT+4oiEdtI7H0qZsI
+        yx5HaOowInOmEa35gLiLX1BUNYUtpVeOwF81DWH6CNySXsFJagA/fQA7KUssfevGxZpZiHLfQlr0kcIL
+        pu/V3P5VILGsD55pQ3BN7IVjdAf2RrVsFRhnG2iQlc5Bpp1DfKkZjqXOuzXB4YC4qAu8+B7sk7SbYGYv
+        pZG9QQN9xOrCwFwjEuhDmeElROk+I/PGCIcDp1QtcJC0bcP24lYcVhhYgUJCnLNs6ErWzlz/tr2mkIJ3
+        UFzq43AgOEu/DTO7p/Vjl3/9GuEV2Jj/BX612jPZAEnFgmlN3so3EBUYOBzwTW3Yhl2SesCL0YOuX22G
+        tySouecub0Vw0SwOKfrhFN0MTVUX1DcNsI14bhqbdebJKEyzHPWH+NWq3QH1q/yUTggzjRBkDJrspRyk
+        RTvo2I9XaWcVl/6PnJXWhH9HRbs823H0/jAzO9PieWR/jjWX4kTIT41A96Y3Me6WAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="toolTipStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>490, 17</value>
+  </metadata>
+  <metadata name="contextMenuStripStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>316, 17</value>
+  </metadata>
+  <metadata name="toolTipStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>490, 17</value>
+  </metadata>
+  <data name="labelName.ToolTip" xml:space="preserve">
+    <value>"Project Name" contains the names of the objects targeted 4.1 classification levels. The length of the name must not exceed 40 characters.
+
+Block "Abbreviated name of the object type" contains the abbreviated name of the address type of the object 1 - 4 levels of classification.
+The length of this name should not exceed 10 characters. Valid values ​​acronym type the address of the object 1 - 4 levels of classification are presented
+in Appendix 1 to the description of the qualifier addresses the Russian Federation (KLADR)</value>
+  </data>
+  <data name="labelGninmb.ToolTip" xml:space="preserve">
+    <value>"IFTS Code" contains the code for the Russian Federal Tax Service Inspectorate departmental FTS Russia Classifier "The notation
+of the tax authorities" (SONO), the serving area, which is currently targeted object. The length of the code - 4 digits</value>
+  </data>
+  <data name="labelOcatd.ToolTip" xml:space="preserve">
+    <value>"OKATO Code" contains the object code of the administrative-territorial
+division of All-Russian classifier OKATO appropriate level (on the subject of the
+Russian Federation to the rural village). The length of the code - 11 digits</value>
+  </data>
+  <data name="labelTitleOcatd.ToolTip" xml:space="preserve">
+    <value>"OKATO Code" contains the object code of the administrative-territorial
+division of All-Russian classifier OKATO appropriate level (on the subject of the
+Russian Federation to the rural village). The length of the code - 11 digits</value>
+  </data>
+  <data name="labelUno.ToolTip" xml:space="preserve">
+    <value>"Code of the territorial area IFTS" includes the territorial area code *
+(abolished inspection, transformed into a unit of inter-district inspectorate:
+Front, the territorial area, etc.) IFTS Russia on a departmental directory, codes
+of tax authorities for registration of taxpayers (Soane), service territory in
+which this is the address object. The length of the code - 4 digits</value>
+  </data>
+  <data name="labelTitleUNO.ToolTip" xml:space="preserve">
+    <value>"Code of the territorial area IFTS" includes the territorial area code *
+(abolished inspection, transformed into a unit of inter-district inspectorate:
+Front, the territorial area, etc.) IFTS Russia on a departmental directory, codes
+of tax authorities for registration of taxpayers (Soane), service territory in
+which this is the address object. The length of the code - 4 digits</value>
+  </data>
+  <data name="labelTitleGninmb.ToolTip" xml:space="preserve">
+    <value>"IFTS Code" contains the code for the Russian Federal Tax Service Inspectorate departmental FTS Russia Classifier "The notation
+of the tax authorities" (SONO), the serving area, which is currently targeted object. The length of the code - 4 digits</value>
+  </data>
+  <data name="labelCode.ToolTip" xml:space="preserve">
+    <value>"Code" includes an identification code of the targeted object 1 - 4 levels of classification and a sign of its relevance.
+The identification code is constructed using the method of hierarchical classification and consistent method of coding within the classification groups.
+Relevance may be a sign of the following values:
+            "00" - the actual object (its name, the subordination of the match at the moment of the address space).
+            "01" - "50" - the object was renamed in the record shows one of his previous titles (current address object is present in the database with the same code, but with the sign of the relevance of "00";
+            "51" - the object has been reassigned or merged into another object (the actual address of an object is determined based Altnames.dbf);
+            "52" - "98" - back relevance of the characteristic value;
+            "99" - targeted object does not exist, ie No actual address of the corresponding object.
+The length attribute relevance - two digits. The length of the identification code - 11 digits.
+
+               Code structure in the block "code":
+SS RRR GGG PPP AA, where
+CC - Code of the Russian Federation (the region), region codes are presented in Appendix 2 to the description of the qualifier addresses the Russian Federation (KLADR);
+PPP - the area code;
+GGG - city code;
+RFP - area code,
+AA - a sign of the relevance of the address object</value>
+  </data>
+  <data name="labelTitleCode.ToolTip" xml:space="preserve">
+    <value>"Code" includes an identification code of the targeted object 1 - 4 levels of classification and a sign of its relevance.
+The identification code is constructed using the method of hierarchical classification and consistent method of coding within the classification groups.
+Relevance may be a sign of the following values:
+            "00" - the actual object (its name, the subordination of the match at the moment of the address space).
+            "01" - "50" - the object was renamed in the record shows one of his previous titles (current address object is present in the database with the same code, but with the sign of the relevance of "00";
+            "51" - the object has been reassigned or merged into another object (the actual address of an object is determined based Altnames.dbf);
+            "52" - "98" - back relevance of the characteristic value;
+            "99" - targeted object does not exist, ie No actual address of the corresponding object.
+The length attribute relevance - two digits. The length of the identification code - 11 digits.
+
+               Code structure in the block "code":
+SS RRR GGG PPP AA, where
+CC - Code of the Russian Federation (the region), region codes are presented in Appendix 2 to the description of the qualifier addresses the Russian Federation (KLADR);
+PPP - the area code;
+GGG - city code;
+RFP - area code,
+AA - a sign of the relevance of the address object</value>
+  </data>
+  <data name="labelTitleName.ToolTip" xml:space="preserve">
+    <value>"Project Name" contains the names of the objects targeted 4.1 classification levels. The length of the name must not exceed 40 characters.
+ 
+"Abbreviated name of the object type" contains the abbreviated name of the address type of the object 1 - 4 levels of classification.
+The length of this name should not exceed 10 characters. Valid values ​​acronym type the address of the object 1 - 4 levels of classification are presented
+in Appendix 1 to the description of the qualifier addresses the Russian Federation (KLADR)</value>
+  </data>
+  <metadata name="NameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CodeColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="IndexColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="GNINMBColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UNOColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="OCATDColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="contextMenuStripSubitemsTable.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>605, 17</value>
+  </metadata>
+  <data name="toolStripMenuItemCopy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHkSURBVDhPhZFNbtpQFIUz7jBr6AYYdNJ5pK4gqpIQqsxadR6pyqALyKCrYAuoIgoVEWkIJMbx
+        P8Z2bPyHAwbzW7eD0/cMOKIQeqUjSz7nffe++3bq9Tq26eOnz7s724qG/KAPr7OuYvFHAtnff/8yhAZc
+        vw/bW1XbDVEoXOCieJlA9vbevVocWa1NAKlpIp/Pv6jT0y/PEy0B9XsBP6sM5KaVhOL4D6azdQmikvhH
+        R7k5ZAnQDA+q5hDAvPtk+hthFK/pjhGhyM0kc3CQ3U0BjQeFmAJ4Sd8K0B99FL6XcFkqJ7kUQMk3tyw4
+        UUsBDvmvmz75DvBoBcmULd2FYXUwHM1WAdRUWjYk1UkBLjlIw24nAie04CyWzIs6xsRPAbYXonYv4brK
+        oVxppAAKZVg5GVuUDfQGv/AUzvAgGIhG8TPAaHchtwLwio+G6G2cgOVVmHYPmtlFjVERElgK+FdLAN2B
+        RrpbTh+K5oGT2mB4C6zokkmmc0Aud/I6m/2QIe+aOTw8zpCnyVCD3lElC7tjZNzUBFSqPMrXHEpXLCq3
+        KvzuArCpqDEcx3A6E5juGC1rCNmIwKt9sEqIhhzCe5psB9Ar9AYzBGRptJsbTAhwDNufKxotdrCpzs+/
+        vaXm/3R29vXNX3iJ5X/xVflfAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="statusStripStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 17</value>
+  </metadata>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AACBgYGEf39//oCAgP5/f3//fn5+/359fv9+fn7/fX5+/39/f/9/f3//gICA/4CAgP+AgID/gICA/3+A
+        gP+DgoJ/fX198NDKyv/TzM3/4+Dg//Tx8f///v7///////j19f/f3Nz/yMPD/8K+vv/Cvr7/wr6+/8K+
+        vv/Pysr/eXl58H1+fe3HwcL/ycPD/9vX1//s6er/+Pb2//z6+v/w7e3/1tLS/764uP+5tLT/ubS0/7m0
+        tP+4s7P/xsHB/3l5ee19fX3uxL6//8fBwf/a1tb/6+jp//j29v/8+vr/8O3t/9TQ0P+7tbX/trGx/7ax
+        sf+2sbH/trCw/8O+vv95eXnuf39/y/z8/P/49vb/+/r6//7+/v/////////////+/v/6+vr/9vX1//T0
+        9P/19PT/9fT0//T09P/9+/v/ent7yYmGiHKIhIX/kY6O/52bm/+opqb/sa6u/7Oxsf+pp6f/l5WV/4iE
+        hP+Dfn7/g39//4N/f/+Df3//g39//4eGhnN8fX3x0s3O/9XP0P/j4OD/8/Dw//37+///////9fPz/9/c
+        3P/Kx8f/xsHB/8bBwf/GwcH/xsHB/9LOzv94eHjwfX597cfAwf/Jw8P/29fX/+zp6v/49vb//Pr6//Dt
+        7f/W0tL/vri4/7izs/+5tLT/ubS0/7izs//GwMD/eXl57X19fe7Evr//x8HB/9rW1v/r6On/+Pb2//z6
+        +v/w7e3/1NDQ/7u1tf+2sLD/trGx/7axsf+1sLD/w76+/3l5ee5/f3/D//79//n4+P/8+/v//v79////
+        //////////7+//v6+v/39/f/9/f3//f39//39/f/9/f3///+/v97fHzDg4KCjZOPkP+cl5n/pqSk/7Cu
+        r/+4trb/ubi4/7Gvr/+gnp7/ko+P/4uIiP+MiYn/jImJ/4yJif+MiYn/iIeHd319ffDQysv/0s3N/+Le
+        3//x7u///fv6///////18fH/3tvb/8fDw//Dvr7/xL+//8S/v//Dvr7/z8rK/3h5efB9fn3tx8DC/8nD
+        w//b19f/7Onq//j29v/8+vr/8O3t/9bS0v++uLj/uLS0/7m0tP+5tLT/uLOz/8bAwP95eXntfX597cW/
+        wP/IwcH/2tbW/+vo6f/49vb//Pr6//Dt7f/V0dH/vLa2/7axsf+3srL/t7Ky/7axsf/Ev7//eXl57Xt7
+        e/Dw7+7/7uvr//X09P/9/Pz////////////+/f3/8/Ly/+nn5//m5OT/5uTk/+bk5P/m5OT/8O7u/3Z3
+        d/CGhoZ9e3t78Ht7e+17e3vuenp67np6eu56enruenp67nt7e+57e3vue3t77nt7e+57e3vue3t77nt7
+        e/GHh4eBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
+</root>
