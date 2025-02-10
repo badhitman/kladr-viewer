@@ -5,7 +5,7 @@ namespace KLADR_viewer_v4
 {
     class CachingEngine
     {
-        private string folderNameDB;
+        private readonly string folderNameDB;
 
         public CachingEngine(string folderNameDB)
         {
@@ -16,7 +16,7 @@ namespace KLADR_viewer_v4
             }
         }
 
-        public void addNode(string name, List<Dictionary<string, string>> source)
+        public void AddNode(string name, List<Dictionary<string, string>> source)
         {
             if (File.Exists(folderNameDB + "cashing\\nodes\\" + name + ".bin"))
                 return;
@@ -24,11 +24,6 @@ namespace KLADR_viewer_v4
             System.Runtime.Serialization.Formatters.Binary.BinaryFormatter serializer = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
             serializer.Serialize(TestFileStream, source);
             TestFileStream.Close();
-        }
-
-        public void Dispose()
-        {
-
         }
 
         public List<Dictionary<string, string>> GetFromCashAsBin(string name)

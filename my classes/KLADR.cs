@@ -16,7 +16,7 @@ namespace KLADR_viewer_v4
         public string typeObj;
         public bool existSubElements;
 
-        public Color getColorObjectKladr()
+        public Color GetColorObjectKladr()
         {
             Color currBColor;
             switch (typeObj)

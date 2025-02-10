@@ -122,7 +122,7 @@ namespace KLADR_viewer_v4.management
             cashTimeStamp.Stop();
             if (cashTimeStamp.ElapsedMilliseconds > Global.CashTimeLimit)
             {
-                Global.CashENG.addNode(kladr.code, courceForCashing2);
+                Global.CashENG.AddNode(kladr.code, courceForCashing2);
             }
             regionsDataBases[codeRegion].Close();
             regionsDataBases[codeRegion].Open();
@@ -142,12 +142,11 @@ namespace KLADR_viewer_v4.management
                 if (mySQLITEConnection.State != ConnectionState.Closed)
                     mySQLITEConnection.Close();
                 string dirDataBase = Global.DirectoryProgramRoot + "\\" + folderName + "\\";
-                if (Global.CashENG != null)
-                    Global.CashENG.Dispose();
+                
                 Global.CashENG = new CachingEngine(Global.DirectoryProgramRoot + "\\" + folderName + "\\");
                 foreach (string file in Directory.GetFiles(Global.DirectoryProgramRoot + "\\" + folderName, "*.sqlite"))
                 {
-                    if (!System.Text.RegularExpressions.Regex.IsMatch(file, @"\\\d\d\.sqlite$"))
+                    if (!Regex.IsMatch(file, @"\\\d\d\.sqlite$"))
                         continue;
                     string codeFile = Path.GetFileNameWithoutExtension(file);
                     regionsDataBases.Add(codeFile, new SqliteConnection(string.Format("Version=3,uri=file:{0},Cache Size=20000", file)));

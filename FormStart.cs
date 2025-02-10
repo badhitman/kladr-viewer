@@ -201,7 +201,7 @@ namespace KLADR_viewer_v4
                     Text = k.Value.name + " " + k.Value.socr,
                     Tag = k.Value
                 };
-                Color currBColor = k.Value.getColorObjectKladr();
+                Color currBColor = k.Value.GetColorObjectKladr();
                 newNode.BackColor = currBColor;
                 newNode.Nodes.Add("*");
                 newNode.BackColor = FormStart.GetTypeCode(k.Value.code);
