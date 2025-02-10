@@ -253,7 +253,7 @@
     <Compile Include="FormStart.Designer.cs">
       <DependentUpon>FormStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="my classes\CachinEgngine.cs" />
+    <Compile Include="my classes\CachingEngine.cs" />
     <Compile Include="my classes\ConvertDBFtoCSV.cs" />
     <Compile Include="my classes\databases.cs" />
     <Compile Include="my classes\DictionaryConnections.cs" />

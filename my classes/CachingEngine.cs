@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace KLADR_viewer_v4
 {
-    class CachinEgngine
+    class CachingEngine
     {
         private string folderNameDB;
 
-        public CachinEgngine(string folderNameDB)
+        public CachingEngine(string folderNameDB)
         {
             this.folderNameDB = folderNameDB;
             if (!Directory.Exists(folderNameDB + "cashing\\nodes\\"))
@@ -34,7 +31,7 @@ namespace KLADR_viewer_v4
 
         }
 
-        public List<Dictionary<string, string>> getFromCashAsBin(string name)
+        public List<Dictionary<string, string>> GetFromCashAsBin(string name)
         {
             if (!File.Exists(folderNameDB + "cashing\\nodes\\" + name + ".bin"))
                 return null;

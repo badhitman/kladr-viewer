@@ -111,18 +111,18 @@ namespace KLADR_viewer_v4
         private void FormKLADRtoCSV_Load(object sender, EventArgs e)
         {
             toolStripStatusLabelImportKLADRtoCSV.Tag = toolStripStatusLabelImportKLADRtoCSV.Text;
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            Global.RaiseCustomEvent += new EventHandler(updateLang);
             updateLang(null, null);
         }
 
         private void updateLang(object sender, EventArgs e) 
         {
-            this.Text = language.formKLADRtoCSV._window_text;
-            labelInfoConverter.Text = language.formKLADRtoCSV._label_info;
-            buttonImport.Text = language.formKLADRtoCSV._button_import_text;
-            buttonClose.Text = language.formKLADRtoCSV._button_close_text;
-            toolStripStatusLabelImportKLADRtoCSV.Tag = language.formStart._status_label_text;
-            toolStripStatusLabelImportKLADRtoCSV.Text = language.formStart._status_label_text;
+            this.Text = Language.FormKLADRtoCSV.Window_text;
+            labelInfoConverter.Text = Language.FormKLADRtoCSV.Label_info;
+            buttonImport.Text = Language.FormKLADRtoCSV.Button_import_text;
+            buttonClose.Text = Language.FormKLADRtoCSV.Button_close_text;
+            toolStripStatusLabelImportKLADRtoCSV.Tag = Language.FormStart._status_label_text;
+            toolStripStatusLabelImportKLADRtoCSV.Text = Language.FormStart._status_label_text;
         }
     }
 }

@@ -54,7 +54,7 @@
             this.textBoxSelectFolder.Size = new System.Drawing.Size(406, 20);
             this.textBoxSelectFolder.TabIndex = 0;
             this.toolTipCreateNewDataBase.SetToolTip(this.textBoxSelectFolder, resources.GetString("textBoxSelectFolder.ToolTip"));
-            this.textBoxSelectFolder.Click += new System.EventHandler(this.textBoxSelectFolder_Click);
+            this.textBoxSelectFolder.Click += new System.EventHandler(this.TextBoxSelectFolder_Click);
             // 
             // buttonSelectFolder
             // 
@@ -66,7 +66,7 @@
             this.buttonSelectFolder.Text = "...";
             this.toolTipCreateNewDataBase.SetToolTip(this.buttonSelectFolder, resources.GetString("buttonSelectFolder.ToolTip"));
             this.buttonSelectFolder.UseVisualStyleBackColor = true;
-            this.buttonSelectFolder.Click += new System.EventHandler(this.buttonSelectFolder_Click);
+            this.buttonSelectFolder.Click += new System.EventHandler(this.ButtonSelectFolder_Click);
             // 
             // labelFolderGNIVC
             // 
@@ -88,7 +88,7 @@
             this.buttonStartTransfer.TabIndex = 27;
             this.buttonStartTransfer.Text = "Start transfer";
             this.buttonStartTransfer.UseVisualStyleBackColor = true;
-            this.buttonStartTransfer.Click += new System.EventHandler(this.buttonOK_Click);
+            this.buttonStartTransfer.Click += new System.EventHandler(this.ButtonOK_Click);
             // 
             // buttonClose
             // 

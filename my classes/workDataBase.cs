@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Community.CsharpSqlite.SQLiteClient;
 using System.Data;
 using System.Data.Common;
@@ -11,7 +9,7 @@ using System.Collections;
 
 namespace KLADR_viewer_v4.management
 {
-    public class workDataBase
+    public class WorkDataBase
     {
         #region variables
         private SqliteConnection mySQLITEConnection;
@@ -22,23 +20,23 @@ namespace KLADR_viewer_v4.management
         private DbTransaction mySQLITETransaction;
 
         DictionaryConnections regionsDataBases = new DictionaryConnections();
-        Dictionary<string, SqliteCommand> regionsDBComands = new Dictionary<string, SqliteCommand>();
+        Dictionary<string, SqliteCommand> regionsDBCommands = new Dictionary<string, SqliteCommand>();
 
         public Dictionary<string, KLADR> KladrElements;
         public delegate void updateStatusLabelStartFormDelegate(string newStatus, FormStart invokeForm);
         #endregion
 
-        public workDataBase()
+        public WorkDataBase()
         {
             mySQLITEConnection = new SqliteConnection();
             mySQLITECommand = ((SqliteCommand)mySQLITEConnection.CreateCommand());
             KladrElements = new Dictionary<string, KLADR>();
         }
 
-        public bool selectNode(KLADR kladr)
+        public bool SelectNode(KLADR kladr)
         {
             System.Diagnostics.Stopwatch cashTimeStamp = new System.Diagnostics.Stopwatch();
-            
+
             string codeObject = kladr.code;
             string codeRegion = codeObject.Substring(0, 2);
             string codeRayon = codeObject.Substring(2, 3);
@@ -48,7 +46,7 @@ namespace KLADR_viewer_v4.management
             string codeHome = codeObject.Length < 19 ? "" : codeObject.Substring(15, 4);
             KladrElements.Clear();
 
-            List<Dictionary<string, string>> fromCash = global.CashENG.getFromCashAsBin(codeObject);
+            List<Dictionary<string, string>> fromCash = Global.CashENG.GetFromCashAsBin(codeObject);
 
             if (fromCash != null)
             {
@@ -103,12 +101,12 @@ namespace KLADR_viewer_v4.management
             List<Dictionary<string, string>> courceForCashing2 = new List<Dictionary<string, string>>();
             foreach (string queryText in queryTextList)
             {
-                regionsDBComands[codeRegion].CommandText = queryText;
-                mySQLITEReader = regionsDBComands[codeRegion].ExecuteReader();
+                regionsDBCommands[codeRegion].CommandText = queryText;
+                mySQLITEReader = regionsDBCommands[codeRegion].ExecuteReader();
                 while (mySQLITEReader.Read())
                 {
                     KladrElements.Add(mySQLITEReader["code"].ToString(), new KLADR(mySQLITEReader));
-                    courceForCashing2.Add(new Dictionary<string, string>() { 
+                    courceForCashing2.Add(new Dictionary<string, string>() {
                     { "name", mySQLITEReader["name"].ToString() }
                     ,{ "socr", mySQLITEReader["socr"].ToString() }
                     ,{ "code", mySQLITEReader["code"].ToString() }
@@ -122,46 +120,46 @@ namespace KLADR_viewer_v4.management
                 mySQLITEReader.Close();
             }
             cashTimeStamp.Stop();
-            if (cashTimeStamp.ElapsedMilliseconds > global.CashTimeLimit)
+            if (cashTimeStamp.ElapsedMilliseconds > Global.CashTimeLimit)
             {
-                global.CashENG.addNode(kladr.code, courceForCashing2);
+                Global.CashENG.addNode(kladr.code, courceForCashing2);
             }
             regionsDataBases[codeRegion].Close();
             regionsDataBases[codeRegion].Open();
-            regionsDBComands[codeRegion] = ((SqliteCommand)regionsDataBases[codeRegion].CreateCommand());
+            regionsDBCommands[codeRegion] = ((SqliteCommand)regionsDataBases[codeRegion].CreateCommand());
             return true;
         }
 
-        public bool selectDataBase(string folderName, FormStart invokeForm)
+        public bool SelectDataBase(string folderName, FormStart invokeForm)
         {
             try
             {
                 KladrElements.Clear();
                 regionsDataBases.CloseAllConnections();
                 regionsDataBases.Clear();
-                regionsDBComands.Clear();
+                regionsDBCommands.Clear();
                 //regionsDBTransactions.Clear();
                 if (mySQLITEConnection.State != ConnectionState.Closed)
                     mySQLITEConnection.Close();
-                string dirDataBase = global.DirectoryProgrammRoot + "\\" + folderName + "\\";
-                if (global.CashENG != null)
-                    global.CashENG.Dispose();
-                global.CashENG = new CachinEgngine(global.DirectoryProgrammRoot + "\\" + folderName + "\\");
-                foreach (string file in Directory.GetFiles(global.DirectoryProgrammRoot + "\\" + folderName, "*.sqlite"))
+                string dirDataBase = Global.DirectoryProgramRoot + "\\" + folderName + "\\";
+                if (Global.CashENG != null)
+                    Global.CashENG.Dispose();
+                Global.CashENG = new CachingEngine(Global.DirectoryProgramRoot + "\\" + folderName + "\\");
+                foreach (string file in Directory.GetFiles(Global.DirectoryProgramRoot + "\\" + folderName, "*.sqlite"))
                 {
                     if (!System.Text.RegularExpressions.Regex.IsMatch(file, @"\\\d\d\.sqlite$"))
                         continue;
                     string codeFile = Path.GetFileNameWithoutExtension(file);
                     regionsDataBases.Add(codeFile, new SqliteConnection(string.Format("Version=3,uri=file:{0},Cache Size=20000", file)));
                     regionsDataBases[codeFile].Open();
-                    regionsDBComands.Add(codeFile, ((SqliteCommand)regionsDataBases[codeFile].CreateCommand()));
+                    regionsDBCommands.Add(codeFile, ((SqliteCommand)regionsDataBases[codeFile].CreateCommand()));
                     //regionsDBTransactions.Add(codeFile, regionsDataBases[codeFile].BeginTransaction());
-                    regionsDBComands[codeFile].CommandText = "SELECT name, socr, code, post_index, gninmb, uno, ocatd, status, '' as typeObj, '' as korp FROM kladr WHERE code LIKE '__000000000__'";
-                    mySQLITEReader = regionsDBComands[codeFile].ExecuteReader();
+                    regionsDBCommands[codeFile].CommandText = "SELECT name, socr, code, post_index, gninmb, uno, ocatd, status, '' as typeObj, '' as korp FROM kladr WHERE code LIKE '__000000000__'";
+                    mySQLITEReader = regionsDBCommands[codeFile].ExecuteReader();
                     mySQLITEReader.Read();
                     lock (invokeForm)
                     {
-                        invokeForm.toolStripStatusLabelStart.Text = my_classes.language.other._connected_to_data_base_of_open+": '" + mySQLITEReader["name"].ToString() + " " + mySQLITEReader["socr"].ToString() + "'";
+                        invokeForm.toolStripStatusLabelStart.Text = my_classes.Language.Other.Connected_to_data_base_of_open + ": '" + mySQLITEReader["name"].ToString() + " " + mySQLITEReader["socr"].ToString() + "'";
                     }
                     //invokeForm.Invoke(new updateStatusLabelStartFormDelegate(delegate(string message, FormStart invokeForm2) { invokeForm2.toolStripStatusLabelStart.Text = message; }), new object[] { "connected to the base region: '" + mySQLITEReader["name"].ToString() + " " + mySQLITEReader["socr"].ToString() + "'", invokeForm });
                     KladrElements.Add(mySQLITEReader["code"].ToString().Substring(0, 2), new KLADR(mySQLITEReader));
@@ -177,7 +175,7 @@ namespace KLADR_viewer_v4.management
             return true;
         }
 
-        public void search(string how, string where, SearchArea SA)
+        public void Search(string how, string where, SearchArea SA)
         {
             string where2 = SA == SearchArea.City ? "_____________" : "_________________";
 
@@ -194,19 +192,17 @@ namespace KLADR_viewer_v4.management
                 CommandText = "SELECT name, socr, code, post_index, gninmb, uno, ocatd, status, '' as typeObj FROM KLADR WHERE (" + (SA == SearchArea.All ? "1=1" : "code LIKE :querySqarch2") + ") AND (lower(name) LIKE :querySqarch OR lower(code) LIKE :querySqarch OR lower(post_index) LIKE :querySqarch OR lower(gninmb) LIKE :querySqarch OR lower(uno) LIKE :querySqarch OR lower(ocatd) LIKE :querySqarch)";
             }
 
-            
-
             KladrElements.Clear();
-            regionsDBComands[where].Parameters.Clear();
-            regionsDBComands[where].Parameters.Add(new SqliteParameter("querySqarch", DbType.String));
-            regionsDBComands[where].Parameters.Add(new SqliteParameter("querySqarch2", DbType.String));
-            regionsDBComands[where].CommandText = CommandText;
-            regionsDBComands[where].Parameters["querySqarch"].Value = how;
-            regionsDBComands[where].Parameters["querySqarch2"].Value = where2;
+            regionsDBCommands[where].Parameters.Clear();
+            regionsDBCommands[where].Parameters.Add(new SqliteParameter("querySqarch", DbType.String));
+            regionsDBCommands[where].Parameters.Add(new SqliteParameter("querySqarch2", DbType.String));
+            regionsDBCommands[where].CommandText = CommandText;
+            regionsDBCommands[where].Parameters["querySqarch"].Value = how;
+            regionsDBCommands[where].Parameters["querySqarch2"].Value = where2;
 
             //regionsDBComands[where].CommandText = string.Format(CommandText.Replace(":querySqarch", "{0}"), "'" + how.Replace("'","\'") + "'");
 
-            mySQLITEReader = regionsDBComands[where].ExecuteReader();
+            mySQLITEReader = regionsDBCommands[where].ExecuteReader();
             while (mySQLITEReader.Read())
             {
                 string code = mySQLITEReader["code"].ToString();

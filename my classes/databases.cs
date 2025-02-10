@@ -73,11 +73,11 @@ namespace KLADR_viewer_v4.management
                     }
                     try
                     {
-                        invokeForm.BeginInvoke(new universalDelegate(delegate() { invokeForm.textBoxLog.AppendText(DateTime.Now.TimeOfDay.ToString().Substring(0, 8) + " " + language.other._create_connect_to_dbf); }));
+                        invokeForm.BeginInvoke(new universalDelegate(delegate() { invokeForm.textBoxLog.AppendText(DateTime.Now.TimeOfDay.ToString().Substring(0, 8) + " " + Language.Other.Create_connect_to_dbf); }));
                         myDBFConnection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + folderDBF + "\\;Extended Properties=DBASE IV;Persist Security Info=False;";
                         myDBFConnection.Open();
                         myDBFCommand = myDBFConnection.CreateCommand();
-                        log(invokeForm, language.other._test_correct_dbf_text);
+                        log(invokeForm, Language.Other.Test_correct_dbf_text);
                         myDBFCommand.CommandText = "SELECT TOP 1 " +
                             "  `ALTNAMES`.`OLDCODE`, `ALTNAMES`.`NEWCODE`, `ALTNAMES`.`LEVEL`" +
                             ", `FLAT`.`CODE`, `FLAT`.`NP`, `FLAT`.`GNINMB`, `FLAT`.`NAME`, `FLAT`.`INDEX`, `FLAT`.`UNO`" +
@@ -91,7 +91,7 @@ namespace KLADR_viewer_v4.management
                     }
                     catch (Exception e)
                     {
-                        MessageBox.Show(language.other._unable_to_connect_to_db + folderDBF + "{" + e.Message + "}", language.other._error_connect_to_db, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Language.Other.Unable_to_connect_to_db + folderDBF + "{" + e.Message + "}", Language.Other.Error_connect_to_db, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     if (mySQLITEConnection == null)
@@ -102,13 +102,13 @@ namespace KLADR_viewer_v4.management
                     {
                         mySQLITEConnection.Close();
                     }
-                    folderSQLITE = global.DirectoryProgrammRoot + "\\" + folderSQLITE + "\\";
+                    folderSQLITE = Global.DirectoryProgramRoot + "\\" + folderSQLITE + "\\";
                     if (!Directory.Exists(folderSQLITE))
                     {
                         Directory.CreateDirectory(folderSQLITE);
                     }
 
-                    log(invokeForm, language.other._create_connect);
+                    log(invokeForm, Language.Other.Create_connect);
                     mySQLITEConnection = new SqliteConnection(string.Format("Version=3,uri=file:{0}", folderSQLITE + "service.sqlite"));
                     mySQLITECommand = ((SqliteCommand)mySQLITEConnection.CreateCommand());
                     mySQLITEConnection.Open();
@@ -192,7 +192,7 @@ namespace KLADR_viewer_v4.management
                     //myDBFDataReader.Close();
                     //******************************************************************
                     //
-                    log(invokeForm, language.other._transfer_records_socrbase);
+                    log(invokeForm, Language.Other.Transfer_records_socrbase);
                     myDBFCommand.CommandText = "SELECT `SOCRBASE`.`LEVEL`, `SOCRBASE`.`SCNAME`, `SOCRBASE`.`SOCRNAME`, `SOCRBASE`.`KOD_T_ST` FROM SOCRBASE";
                     myDBFDataReader = myDBFCommand.ExecuteReader();
                     mySQLITECommand.Parameters.Clear();
@@ -240,7 +240,7 @@ namespace KLADR_viewer_v4.management
                     mySQLITECommand.Parameters.Add(new SqliteParameter("OCATD", System.Data.DbType.String));
                     string STATUS;
                     mySQLITECommand.Parameters.Add(new SqliteParameter("STATUS", System.Data.DbType.String));
-                    log(invokeForm, language.other._transfer_records_kladr+"Transfer records 'KLADR' DBF->SQLite...");
+                    log(invokeForm, Language.Other.Transfer_records_kladr+"Transfer records 'KLADR' DBF->SQLite...");
                     string coderegion;
                     while (myDBFDataReader.Read())
                     {
@@ -259,7 +259,7 @@ namespace KLADR_viewer_v4.management
                         {
                             regionsDBConnections.Add(coderegion, new SqliteConnection(string.Format("Version=3,uri=file:{0}.sqlite", folderSQLITE + coderegion)));
                             regionsDBComands.Add(coderegion, ((SqliteCommand)regionsDBConnections[coderegion].CreateCommand()));
-                            log(invokeForm, language.other._create_data_base_to_region+" '" + coderegion + "'");
+                            log(invokeForm, Language.Other.Create_data_base_to_region+" '" + coderegion + "'");
                             regionsDBComands[coderegion].Parameters.Add(new SqliteParameter("NAME", System.Data.DbType.String));
                             regionsDBComands[coderegion].Parameters.Add(new SqliteParameter("KORP", System.Data.DbType.String));
                             regionsDBComands[coderegion].Parameters.Add(new SqliteParameter("SOCR", System.Data.DbType.String));
@@ -314,7 +314,7 @@ namespace KLADR_viewer_v4.management
                     #region Load table STREET.DBF
                     myDBFCommand.CommandText = "SELECT `STREET`.`NAME`, `STREET`.`SOCR`, `STREET`.`CODE`, `STREET`.`INDEX`, `STREET`.`GNINMB`, `STREET`.`UNO`, `STREET`.`OCATD` FROM STREET";
                     myDBFDataReader = myDBFCommand.ExecuteReader();
-                    log(invokeForm, language.other._transfer_records_street);
+                    log(invokeForm, Language.Other.Transfer_records_street);
                     while (myDBFDataReader.Read())
                     {
                         NAME = myDBFDataReader["NAME"].ToString();
@@ -351,7 +351,7 @@ namespace KLADR_viewer_v4.management
                     string KORP;
                     myDBFCommand.CommandText = "SELECT `DOMA`.`NAME`, `DOMA`.`KORP`, `DOMA`.`SOCR`, `DOMA`.`CODE`, `DOMA`.`INDEX`, `DOMA`.`GNINMB`, `DOMA`.`UNO`, `DOMA`.`OCATD` FROM DOMA";
                     myDBFDataReader = myDBFCommand.ExecuteReader();
-                    log(invokeForm, language.other._transfer_records_doma);
+                    log(invokeForm, Language.Other.Transfer_records_doma);
                     while (myDBFDataReader.Read())
                     {
                         NAME = myDBFDataReader["NAME"].ToString();
@@ -386,7 +386,7 @@ namespace KLADR_viewer_v4.management
 
                     foreach (KeyValuePair<string, DbTransaction> t in regionsDBTransactions)
                     {
-                        log(invokeForm, language.other._indexing_sqlitq_database_to_region + t.Key + ")");
+                        log(invokeForm, Language.Other.Indexing_sqlitq_database_to_region + t.Key + ")");
                         regionsDBComands[t.Key].CommandText = @"CREATE INDEX KLADR_full ON  KLADR (NAME, CODE, POST_INDEX, GNINMB, UNO, OCATD, STATUS);";
                         regionsDBComands[t.Key].ExecuteNonQuery();
                         //regionsDBComands[t.Key].CommandText = @"CREATE INDEX STREET_full ON  STREET (NAME, SOCR, CODE, POST_INDEX, GNINMB, UNO, OCATD);";
@@ -400,7 +400,7 @@ namespace KLADR_viewer_v4.management
                     //log(invokeForm, "Committing transaction's...");
                     mySQLITETransaction.Commit();
                     mySQLITEConnection.Close();
-                    log(invokeForm, language.formStart._status_label_text);
+                    log(invokeForm, Language.FormStart._status_label_text);
                     invokeForm.Invoke(new universalDelegate(delegate()
                     {
                         invokeForm.buttonClose.Enabled = true;

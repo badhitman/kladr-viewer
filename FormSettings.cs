@@ -93,15 +93,15 @@ namespace KLADR_viewer_v4
         {
             RegistryKey regKey = Registry.CurrentUser;
             regKey = regKey.CreateSubKey("Software\\KLADR RU.USA");
-            global.DirectoryProgrammRoot = regKey.GetValue("folder_database_program", System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "\\KLADR-Viewer").ToString();
+            Global.DirectoryProgramRoot = regKey.GetValue("folder_database_program", System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "\\KLADR-Viewer").ToString();
             string TimeOut = regKey.GetValue("CacheTimeOut", "150").ToString();
             try
             {
-                global.CashTimeLimit = Convert.ToInt32(TimeOut);
+                Global.CashTimeLimit = Convert.ToInt32(TimeOut);
             }
             catch
             {
-                global.CashTimeLimit = 150;
+                Global.CashTimeLimit = 150;
                 comboBoxCacheTimeOut.SelectedIndex = 4;
                 comboBoxCache_TextChanged(new object(), new EventArgs());
             }
@@ -112,20 +112,20 @@ namespace KLADR_viewer_v4
             RegistryKey regKey = Registry.CurrentUser;
             regKey = regKey.CreateSubKey("Software\\KLADR RU.USA");
             regKey.SetValue("lang", comboBoxLanguage.Text);
-            foreach (KLADR_viewer_v4.my_classes.language.languages lang in Enum.GetValues(typeof(KLADR_viewer_v4.my_classes.language.languages)))
+            foreach (KLADR_viewer_v4.my_classes.Language.Languages lang in Enum.GetValues(typeof(KLADR_viewer_v4.my_classes.Language.Languages)))
             {
                 if (lang.ToString() == comboBoxLanguage.Text)
-                    global.currentLNG = lang;
+                    Global.CurrentLNG = lang;
             }
         }
 
         private void FormSettings_Load(object sender, EventArgs e)
         {
             string defLang = "";
-            foreach (KLADR_viewer_v4.my_classes.language.languages lang in Enum.GetValues(typeof(KLADR_viewer_v4.my_classes.language.languages)))
+            foreach (KLADR_viewer_v4.my_classes.Language.Languages lang in Enum.GetValues(typeof(KLADR_viewer_v4.my_classes.Language.Languages)))
             {
                 comboBoxLanguage.Items.Add(lang.ToString());
-                if (global.currentLNG.ToString() == lang.ToString())
+                if (Global.CurrentLNG.ToString() == lang.ToString())
                     defLang = lang.ToString();
             }
             comboBoxLanguage.SelectedItem = defLang;
@@ -151,22 +151,22 @@ namespace KLADR_viewer_v4
             }
             if (comboBoxCacheTimeOut.SelectedItem == null)
                 comboBoxCacheTimeOut.SelectedItem = "150";
-            this.Text += global.preficsBildProgramm;
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            this.Text += Global.preficsBildProgramm;
+            Global.RaiseCustomEvent += new EventHandler(updateLang);
             updateLang(null, null);
         }
 
         private void updateLang(object sender, EventArgs e) 
         {
-            this.Text = language.formSettings._title_window;
-            groupBoxLanguageApplication.Text = language.formSettings._lang_app_groupbox_tex;
-            labelChoseLangProgramm.Text = language.formSettings._chose_lang_programm_text;
-            groupBoxTimeAutCash.Text = language.formSettings._group_box_time_aut_cash;
-            labelTimeAutCash.Text = language.formSettings._label_time_aut_cash;
-            label_ms.Text = language.formSettings._label_ms_text;
-            groupBoxFolderDatabaseProgram.Text = language.formSettings._group_box_folder_database_program;
-            labelFolderDatabaseProgram.Text = language.formSettings._label_folder_database_program_text;
-            buttonReset.Text = language.formSettings._button_reset_text;
+            this.Text = Language.FormSettings.Title_window;
+            groupBoxLanguageApplication.Text = Language.FormSettings.Lang_app_groupbox_tex;
+            labelChoseLangProgramm.Text = Language.FormSettings.Chose_lang_programm_text;
+            groupBoxTimeAutCash.Text = Language.FormSettings.Group_box_time_aut_cash;
+            labelTimeAutCash.Text = Language.FormSettings.Label_time_aut_cash;
+            label_ms.Text = Language.FormSettings.Label_ms_text;
+            groupBoxFolderDatabaseProgram.Text = Language.FormSettings.Group_box_folder_database_program;
+            labelFolderDatabaseProgram.Text = Language.FormSettings.Label_folder_database_program_text;
+            buttonReset.Text = Language.FormSettings.Button_reset_text;
         }
     }
 }

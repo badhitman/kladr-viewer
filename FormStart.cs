@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using KLADR_viewer_v4.management;
-using System.Text.RegularExpressions;
-using System.Globalization;
+﻿using System.Text.RegularExpressions;
 using KLADR_viewer_v4.my_classes;
+using System.Collections.Generic;
+using KLADR_viewer_v4.management;
+using System.ComponentModel;
+using System.Windows.Forms;
 using System.Threading;
-using System.Reflection;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.IO;
+using System;
 
 namespace KLADR_viewer_v4
 {
     public partial class FormStart : Form
     {
         #region variables
-        public workDataBase currentDB;
+        public WorkDataBase currentDB;
         private bool notCloseForm = false;
         public delegate void initializationDatabaseDelegate(FormStart invokeForm);
         initializationDatabaseDelegate initializationDatabaseDelegateObj;
@@ -30,7 +27,7 @@ namespace KLADR_viewer_v4
             InitializeComponent();
         }
 
-        public static Color getTypeCode(string code)
+        public static Color GetTypeCode(string code)
         {
             Color returnColor = Color.Empty;
             if ((code.Length == 13 || code.Length == 17) && code.Substring(code.Length - 2) != "00")
@@ -40,24 +37,23 @@ namespace KLADR_viewer_v4
             return returnColor;
         }
 
-        private void initializationDatabase(object sender, EventArgs e)
+        private void InitializationDatabase(object sender, EventArgs e)
         {
-            toolStripStatusLabelStart.Text = language.other._connected_to_data_base_of_open;
+            toolStripStatusLabelStart.Text = Language.Other.Connected_to_data_base_of_open;
 
             initializationDatabaseDelegateObj = new initializationDatabaseDelegate(delegate (FormStart invokeForm)
             {
-                var sw = System.Diagnostics.Stopwatch.StartNew();
-                if (!currentDB.selectDataBase(((ToolStripMenuItem)sender).Text, this))
+                System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
+                if (!currentDB.SelectDataBase(((ToolStripMenuItem)sender).Text, this))
                 {
                     return;
                 }
-                this.Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2)
+                Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2)
                 {
                     invokeForm2.dataGridViewДетали.Rows.Clear();
                     invokeForm2.treeViewStart.Nodes.Clear();
                 }), new object[] { this });
-                //this.Invoke(new initializationDatabaseDelegate(delegate(FormStart invokeForm2) { invokeForm2.treeViewStart.BeginUpdate(); }), new object[] { this });
-
+                
                 IEnumerable<KeyValuePair<string, KLADR>> sortedRegions =
                 from k in currentDB.KladrElements
                 orderby k.Value.name ascending
@@ -65,11 +61,13 @@ namespace KLADR_viewer_v4
 
                 foreach (KeyValuePair<string, KLADR> k in sortedRegions)
                 {
-                    TreeNode newNode = new TreeNode();
-                    newNode.Text = k.Value.name + " " + k.Value.socr;
-                    newNode.Tag = k.Value;
+                    TreeNode newNode = new TreeNode
+                    {
+                        Text = k.Value.name + " " + k.Value.socr,
+                        Tag = k.Value
+                    };
                     newNode.Nodes.Add("*");
-                    newNode.BackColor = FormStart.getTypeCode(k.Value.code);
+                    newNode.BackColor = GetTypeCode(k.Value.code);
                     if (newNode.BackColor != Color.Empty)
                     {
                         newNode.ToolTipText = "Объект не актуален";
@@ -88,29 +86,29 @@ namespace KLADR_viewer_v4
                     }), new object[] { this });
                 }
 
-                this.Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.labelCountElements.Text = dataGridViewДетали.Rows.Count.ToString(); }), new object[] { this });
+                Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.labelCountElements.Text = dataGridViewДетали.Rows.Count.ToString(); }), new object[] { this });
                 sw.Stop();
-                this.Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.labelTimeOfExecution.Text = sw.Elapsed.TotalMilliseconds.ToString() + " ms"; }), new object[] { this });
-                this.Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.toolStripStatusLabelStart.Text = invokeForm2.toolStripStatusLabelStart.Tag.ToString(); }), new object[] { this });
+                Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.labelTimeOfExecution.Text = sw.Elapsed.TotalMilliseconds.ToString() + " ms"; }), new object[] { this });
+                Invoke(new initializationDatabaseDelegate(delegate (FormStart invokeForm2) { invokeForm2.toolStripStatusLabelStart.Text = invokeForm2.toolStripStatusLabelStart.Tag.ToString(); }), new object[] { this });
             });
             initializationDatabaseDelegateObj.BeginInvoke(this, null, null);
         }
 
-        private void файлToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        private void ФайлToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
         {
-            management.databases myBases = new management.databases();
+            databases myBases = new databases();
             открытьToolStripMenuItem.DropDownItems.Clear();
-            string documents_directory = global.DirectoryProgrammRoot + "\\";
+            string documents_directory = Global.DirectoryProgramRoot + "\\";
             if (!Directory.Exists(documents_directory))
             {
                 Directory.CreateDirectory(documents_directory);
             }
             foreach (string DirectoryDB in Directory.GetDirectories(documents_directory))
             {
-                открытьToolStripMenuItem.DropDownItems.Add(DirectoryDB.Substring(DirectoryDB.LastIndexOf("\\") + 1), null, initializationDatabase);
+                открытьToolStripMenuItem.DropDownItems.Add(DirectoryDB.Substring(DirectoryDB.LastIndexOf("\\") + 1), null, InitializationDatabase);
             }
         }
-        
+
         private void ResetCodeTheme()
         {
             if (labelCode.Text.Length == 13)
@@ -118,43 +116,43 @@ namespace KLADR_viewer_v4
                 int akt_obj = Convert.ToInt32(labelCode.Text.Substring(labelCode.Text.Length - 2));
                 if (akt_obj >= 1 && akt_obj <= 50)
                 {
-                    labelCode.Text += " - " + language.formStart._priznak_aktualnosti_01_50;
-                    toolTipStart.SetToolTip(labelCode, language.formStart._priznak_aktualnosti_01_50);
+                    labelCode.Text += " - " + Language.FormStart._priznak_aktualnosti_01_50;
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._priznak_aktualnosti_01_50);
                     labelCode.ForeColor = Color.Red;
                 }
                 else if (akt_obj == 51)
                 {
-                    labelCode.Text += " - " + language.formStart._priznak_aktualnosti_51;
-                    toolTipStart.SetToolTip(labelCode, language.formStart._priznak_aktualnosti_51);
+                    labelCode.Text += " - " + Language.FormStart._priznak_aktualnosti_51;
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._priznak_aktualnosti_51);
                     labelCode.ForeColor = Color.Red;
                 }
                 else if (akt_obj >= 52 && akt_obj <= 98)
                 {
-                    labelCode.Text += " - " + language.formStart._priznak_aktualnosti_52_98;
-                    toolTipStart.SetToolTip(labelCode, language.formStart._priznak_aktualnosti_52_98);
+                    labelCode.Text += " - " + Language.FormStart._priznak_aktualnosti_52_98;
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._priznak_aktualnosti_52_98);
                     labelCode.ForeColor = Color.Red;
                 }
                 else if (akt_obj == 99)
                 {
-                    labelCode.Text += " - " + language.formStart._priznak_aktualnosti_99;
-                    toolTipStart.SetToolTip(labelCode, language.formStart._priznak_aktualnosti_99);
+                    labelCode.Text += " - " + Language.FormStart._priznak_aktualnosti_99;
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._priznak_aktualnosti_99);
                     labelCode.ForeColor = Color.Red;
                 }
                 else if (akt_obj == 0)
                 {
                     //labelCode.Text += " - " + language.formStart._priznak_aktualnosti_00;
-                    toolTipStart.SetToolTip(labelCode, language.formStart._priznak_aktualnosti_00);
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._priznak_aktualnosti_00);
                     labelCode.ForeColor = Color.Blue;
                 }
                 else
                 {
-                    toolTipStart.SetToolTip(labelCode, language.formStart._code_kladr_tool_tip);
+                    toolTipStart.SetToolTip(labelCode, Language.FormStart._code_kladr_tool_tip);
                     labelCode.ForeColor = Color.Blue;
                 }
             }
             else
             {
-                toolTipStart.SetToolTip(labelCode, language.formStart._code_kladr_tool_tip);
+                toolTipStart.SetToolTip(labelCode, Language.FormStart._code_kladr_tool_tip);
                 labelCode.ForeColor = Color.Blue;
             }
             /*
@@ -169,7 +167,7 @@ namespace KLADR_viewer_v4
             //
             /////////////////////////////////////////////////////////
         }
-        private void treeViewStart_AfterSelect(object sender, TreeViewEventArgs e)
+        private void TreeViewStart_AfterSelect(object sender, TreeViewEventArgs e)
         {
             var sw = System.Diagnostics.Stopwatch.StartNew();
             if (treeViewStart.SelectedNode == null || ((KLADR)treeViewStart.SelectedNode.Tag) == null)
@@ -189,7 +187,7 @@ namespace KLADR_viewer_v4
             labelGninmb.Text = info.gninmb;
             labelUno.Text = info.uno;
             labelOcatd.Text = info.ocatd;
-            currentDB.selectNode(((KLADR)treeViewStart.SelectedNode.Tag));
+            currentDB.SelectNode((KLADR)treeViewStart.SelectedNode.Tag);
             labelCode.Text = info.code;
             ResetCodeTheme();
             treeViewStart.SelectedNode.Nodes.Clear();
@@ -198,13 +196,15 @@ namespace KLADR_viewer_v4
             dataGridViewДетали.Visible = false;
             foreach (KeyValuePair<string, KLADR> k in currentDB.KladrElements)
             {
-                TreeNode newNode = new TreeNode();
-                newNode.Text = k.Value.name + " " + k.Value.socr;
-                newNode.Tag = k.Value;
+                TreeNode newNode = new TreeNode
+                {
+                    Text = k.Value.name + " " + k.Value.socr,
+                    Tag = k.Value
+                };
                 Color currBColor = k.Value.getColorObjectKladr();
                 newNode.BackColor = currBColor;
                 newNode.Nodes.Add("*");
-                newNode.BackColor = FormStart.getTypeCode(k.Value.code);
+                newNode.BackColor = FormStart.GetTypeCode(k.Value.code);
                 if (newNode.BackColor != Color.Empty)
                 {
                     newNode.ToolTipText = "Объект не актуален";
@@ -228,16 +228,16 @@ namespace KLADR_viewer_v4
             labelTimeOfExecution.Text = sw.Elapsed.TotalMilliseconds.ToString() + " ms";
         }
 
-        private void splitContainerВложенный_Resize(object sender, EventArgs e)
+        private void SplitContainerВложенный_Resize(object sender, EventArgs e)
         {
             splitContainerВложенный.SplitterDistance = 170;
         }
 
         private void CtrlC(object text)
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                this.BeginInvoke(new SendOrPostCallback(CtrlC), text);
+                BeginInvoke(new SendOrPostCallback(CtrlC), text);
             }
             else
             {
@@ -246,7 +246,7 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void contextMenuStripStart_Opening(object sender, CancelEventArgs e)
+        private void ContextMenuStripStart_Opening(object sender, CancelEventArgs e)
         {
             string source = ((ContextMenuStrip)sender).SourceControl.Text.Trim();
             if (source == "" || source == "-")
@@ -259,12 +259,12 @@ namespace KLADR_viewer_v4
             toolStripMenuItemCopy.Click += new EventHandler(delegate (object _sender, EventArgs _e) { CtrlC(source); });
         }
 
-        private void treeViewStart_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        private void TreeViewStart_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
             treeViewStart.SelectedNode = e.Node;
         }
 
-        private void treeViewStart_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        private void TreeViewStart_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
             if (((TreeView)sender).SelectedNode != null && !((TreeView)sender).SelectedNode.IsExpanded)
             {
@@ -275,18 +275,18 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void поискToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ПоискToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (treeViewStart.Nodes.Count == 0)
             {
-                MessageBox.Show(this, language.formStart._warning_engin_search_of_close_connect, language.formStart._warning_engin_search_non_connect, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, Language.FormStart._warning_engin_search_of_close_connect, Language.FormStart._warning_engin_search_non_connect, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             FormSearch formSrch = new FormSearch(this);
             formSrch.ShowDialog(this);
         }
 
-        private void labelIndex_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LabelIndex_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!Regex.IsMatch(labelIndex.Text.Trim(), @"\d{6}") || e.Button == System.Windows.Forms.MouseButtons.Right)
             {
@@ -295,7 +295,7 @@ namespace KLADR_viewer_v4
             System.Diagnostics.Process.Start("https://www.pochta.ru/offices/" + labelIndex.Text.Trim());
         }
 
-        private void labelName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LabelName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!Regex.IsMatch(labelName.Text.Trim(), @"\w+") || e.Button == System.Windows.Forms.MouseButtons.Right)
             {
@@ -311,24 +311,24 @@ namespace KLADR_viewer_v4
             System.Diagnostics.Process.Start("http://maps.yandex.ru/?text=" + "Россия, " + searchQuery);
         }
 
-        private void содержаниеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void СодержаниеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/badhitman/kladr-viewer");
         }
 
-        private void kLADRToSQLToolStripMenuItem_Click(object sender, EventArgs e)
+        private void KLADRToSQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormKLADRtoCSV fks = new FormKLADRtoCSV();
             fks.ShowDialog();
         }
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormSettings fs = new FormSettings();
             fs.ShowDialog();
         }
 
-        private void toolStripStatusLabelStart_TextChanged(object sender, EventArgs e)
+        private void ToolStripStatusLabelStart_TextChanged(object sender, EventArgs e)
         {
             ToolStripStatusLabel currLabel = ((ToolStripStatusLabel)sender);
             if (currLabel.Text != currLabel.Tag.ToString())
@@ -357,12 +357,12 @@ namespace KLADR_viewer_v4
                 e.Cancel = true;
         }
 
-        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridViewДетали.SelectAll();
         }
 
-        private void invertSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InvertSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridViewДетали.Rows)
             {
@@ -371,7 +371,7 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.SetDataObject(
                     this.dataGridViewДетали.GetClipboardContent());
@@ -388,110 +388,110 @@ namespace KLADR_viewer_v4
                 folder_database_program = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "\\KLADR-Viewer";
             }
 
-            global.DirectoryProgrammRoot = folder_database_program;
-            regKey.SetValue("lang", my_classes.language.detectLang(regKey.GetValue("lang", "English").ToString()));
-            global.currentLNG = my_classes.language.detectLang(regKey.GetValue("lang", "English").ToString());
+            Global.DirectoryProgramRoot = folder_database_program;
+            regKey.SetValue("lang", my_classes.Language.DetectLang(regKey.GetValue("lang", "English").ToString()));
+            Global.CurrentLNG = my_classes.Language.DetectLang(regKey.GetValue("lang", "English").ToString());
 
             выходToolStripMenuItem.Click += new EventHandler(delegate (object _sender, EventArgs _e) { this.Close(); });
             опрограммеToolStripMenuItem.Click += new EventHandler(delegate (object _sender, EventArgs _e) { new FormAbout().ShowDialog(); });
             создатьToolStripMenuItem.Click += new EventHandler(delegate (object _sender, EventArgs _e) { new FormCreateDB().ShowDialog(); });
-            currentDB = new management.workDataBase();
+            currentDB = new management.WorkDataBase();
 
-            updateLang(this.Controls, null);
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            UpdateLang(this.Controls, null);
+            Global.RaiseCustomEvent += new EventHandler(UpdateLang);
         }
 
-        private void updateLang(object sender, EventArgs e)
+        private void UpdateLang(object sender, EventArgs e)
         {
-            this.Text = language.formStart._textWindow;
+            this.Text = Language.FormStart.TextWindow;
 
 
-            файлToolStripMenuItem.Text = language.formStart._file_text;
-            файлToolStripMenuItem.ToolTipText = language.formStart._file_tool_tip;
+            файлToolStripMenuItem.Text = Language.FormStart.File_text;
+            файлToolStripMenuItem.ToolTipText = Language.FormStart.File_tool_tip;
 
-            создатьToolStripMenuItem.Text = language.formStart._create_text;
-            создатьToolStripMenuItem.ToolTipText = language.formStart._create_tool_tip;
+            создатьToolStripMenuItem.Text = Language.FormStart.Create_text;
+            создатьToolStripMenuItem.ToolTipText = Language.FormStart.Create_tool_tip;
 
-            открытьToolStripMenuItem.Text = language.formStart._open_text;
-            открытьToolStripMenuItem.ToolTipText = language.formStart._open_tool_tip;
+            открытьToolStripMenuItem.Text = Language.FormStart.Open_text;
+            открытьToolStripMenuItem.ToolTipText = Language.FormStart.Open_tool_tip;
 
-            выходToolStripMenuItem.Text = language.formStart._exit_text;
-            выходToolStripMenuItem.ToolTipText = language.formStart._exit_tool_tip;
+            выходToolStripMenuItem.Text = Language.FormStart.Exit_text;
+            выходToolStripMenuItem.ToolTipText = Language.FormStart.Exit_tool_tip;
 
-            сервисToolStripMenuItem.Text = language.formStart._service_text;
-            сервисToolStripMenuItem.ToolTipText = language.formStart._service_tool_tip;
+            сервисToolStripMenuItem.Text = Language.FormStart.Service_text;
+            сервисToolStripMenuItem.ToolTipText = Language.FormStart.Service_tool_tip;
 
-            поискToolStripMenuItem1.Text = language.formStart._search_text;
-            поискToolStripMenuItem1.ToolTipText = language.formStart._search_tool_tip;
+            поискToolStripMenuItem1.Text = Language.FormStart.Search_text;
+            поискToolStripMenuItem1.ToolTipText = Language.FormStart.Search_tool_tip;
 
-            kLADRToSQLToolStripMenuItem.Text = language.formStart._dbf_to_csv_text;
-            kLADRToSQLToolStripMenuItem.ToolTipText = language.formStart._dbf_to_csv_tool_tip;
+            kLADRToSQLToolStripMenuItem.Text = Language.FormStart.Dbf_to_csv_text;
+            kLADRToSQLToolStripMenuItem.ToolTipText = Language.FormStart.Dbf_to_csv_tool_tip;
 
-            settingsToolStripMenuItem.Text = language.formStart._settings_text;
-            settingsToolStripMenuItem.ToolTipText = language.formStart._settings_tool_tip;
+            settingsToolStripMenuItem.Text = Language.FormStart.Settings_text;
+            settingsToolStripMenuItem.ToolTipText = Language.FormStart.Settings_tool_tip;
 
-            справкаToolStripMenuItem.Text = language.formStart._help_text;
-            справкаToolStripMenuItem.ToolTipText = language.formStart._help_tool_tip;
+            справкаToolStripMenuItem.Text = Language.FormStart.Help_text;
+            справкаToolStripMenuItem.ToolTipText = Language.FormStart.Help_tool_tip;
 
-            содержаниеToolStripMenuItem.Text = language.formStart._desc_text;
-            содержаниеToolStripMenuItem.ToolTipText = language.formStart._desc_tool_tip;
+            содержаниеToolStripMenuItem.Text = Language.FormStart.Desc_text;
+            содержаниеToolStripMenuItem.ToolTipText = Language.FormStart.Desc_tool_tip;
 
-            опрограммеToolStripMenuItem.Text = language.formStart._about_text;
-            опрограммеToolStripMenuItem.ToolTipText = language.formStart._about_tool_tip;
+            опрограммеToolStripMenuItem.Text = Language.FormStart.About_text;
+            опрограммеToolStripMenuItem.ToolTipText = Language.FormStart._about_tool_tip;
 
-            toolTipStart.SetToolTip(treeViewStart, language.formStart._tree_start_tool_tip);
+            toolTipStart.SetToolTip(treeViewStart, Language.FormStart._tree_start_tool_tip);
 
-            toolTipStart.SetToolTip(dataGridViewДетали, language.formStart._data_grid_view_detail_start_tool_tip);
+            toolTipStart.SetToolTip(dataGridViewДетали, Language.FormStart._data_grid_view_detail_start_tool_tip);
 
-            labelTitleName.Text = language.formStart._name_title_text;
-            toolTipStart.SetToolTip(labelTitleName, language.formStart._name_title_tool_tip);
-            NameColumn.ToolTipText = language.formStart._name_title_tool_tip;
+            labelTitleName.Text = Language.FormStart._name_title_text;
+            toolTipStart.SetToolTip(labelTitleName, Language.FormStart._name_title_tool_tip);
+            NameColumn.ToolTipText = Language.FormStart._name_title_tool_tip;
 
-            toolTipStart.SetToolTip(labelName, language.formStart._name_title_tool_tip);
+            toolTipStart.SetToolTip(labelName, Language.FormStart._name_title_tool_tip);
 
-            labelTitleCode.Text = language.formStart._code_kladr_tool_text;
-            toolTipStart.SetToolTip(labelTitleCode, language.formStart._code_kladr_tool_tip);
-            CodeColumn.ToolTipText = language.formStart._code_kladr_tool_tip;
+            labelTitleCode.Text = Language.FormStart._code_kladr_tool_text;
+            toolTipStart.SetToolTip(labelTitleCode, Language.FormStart._code_kladr_tool_tip);
+            CodeColumn.ToolTipText = Language.FormStart._code_kladr_tool_tip;
 
             ResetCodeTheme();
             //toolTipStart.SetToolTip(labelCode, language.formStart._code_kladr_tool_tip);
 
-            labelTitleIndex.Text = language.formStart._index_kladr_text;
-            toolTipStart.SetToolTip(labelTitleIndex, language.formStart._index_kladr_tool_tip);
-            IndexColumn.ToolTipText = language.formStart._index_kladr_tool_tip;
+            labelTitleIndex.Text = Language.FormStart._index_kladr_text;
+            toolTipStart.SetToolTip(labelTitleIndex, Language.FormStart._index_kladr_tool_tip);
+            IndexColumn.ToolTipText = Language.FormStart._index_kladr_tool_tip;
 
-            toolTipStart.SetToolTip(labelIndex, language.formStart._index_kladr_tool_tip);
+            toolTipStart.SetToolTip(labelIndex, Language.FormStart._index_kladr_tool_tip);
 
-            labelTitleGninmb.Text = language.formStart._gninmb_kladr_text;
-            toolTipStart.SetToolTip(labelTitleGninmb, language.formStart._gninmb_kladr_tool_tip);
-            GNINMBColumn.ToolTipText = language.formStart._gninmb_kladr_tool_tip;
+            labelTitleGninmb.Text = Language.FormStart._gninmb_kladr_text;
+            toolTipStart.SetToolTip(labelTitleGninmb, Language.FormStart._gninmb_kladr_tool_tip);
+            GNINMBColumn.ToolTipText = Language.FormStart._gninmb_kladr_tool_tip;
 
-            toolTipStart.SetToolTip(labelGninmb, language.formStart._gninmb_kladr_tool_tip);
+            toolTipStart.SetToolTip(labelGninmb, Language.FormStart._gninmb_kladr_tool_tip);
 
-            labelTitleUNO.Text = language.formStart._uno_kladr_text;
-            toolTipStart.SetToolTip(labelTitleUNO, language.formStart._uno_kladr_tool_tip);
-            UNOColumn.ToolTipText = language.formStart._uno_kladr_tool_tip;
+            labelTitleUNO.Text = Language.FormStart._uno_kladr_text;
+            toolTipStart.SetToolTip(labelTitleUNO, Language.FormStart._uno_kladr_tool_tip);
+            UNOColumn.ToolTipText = Language.FormStart._uno_kladr_tool_tip;
 
-            toolTipStart.SetToolTip(labelUno, language.formStart._uno_kladr_tool_tip);
+            toolTipStart.SetToolTip(labelUno, Language.FormStart._uno_kladr_tool_tip);
 
-            labelTitleOcatd.Text = language.formStart._ocatd_kladr_text;
-            toolTipStart.SetToolTip(labelTitleOcatd, language.formStart._ocatd_kladr_tool_tip);
-            OCATDColumn.ToolTipText = language.formStart._ocatd_kladr_tool_tip;
+            labelTitleOcatd.Text = Language.FormStart._ocatd_kladr_text;
+            toolTipStart.SetToolTip(labelTitleOcatd, Language.FormStart._ocatd_kladr_tool_tip);
+            OCATDColumn.ToolTipText = Language.FormStart._ocatd_kladr_tool_tip;
 
-            toolTipStart.SetToolTip(labelOcatd, language.formStart._ocatd_kladr_tool_tip);
+            toolTipStart.SetToolTip(labelOcatd, Language.FormStart._ocatd_kladr_tool_tip);
 
-            labelTitleCountElements.Text = language.formStart._count_elements_text;
-            toolTipStart.SetToolTip(labelTitleCountElements, language.formStart._count_elements_tool_tip);
+            labelTitleCountElements.Text = Language.FormStart._count_elements_text;
+            toolTipStart.SetToolTip(labelTitleCountElements, Language.FormStart._count_elements_tool_tip);
             labelCountElements.Left = labelTitleCountElements.Left + labelTitleCountElements.Width;
-            toolTipStart.SetToolTip(labelCountElements, language.formStart._count_elements_tool_tip);
+            toolTipStart.SetToolTip(labelCountElements, Language.FormStart._count_elements_tool_tip);
 
-            labelTitleTimeOfExecution.Text = language.formStart._time_of_execution_elements_text;
-            toolTipStart.SetToolTip(labelTitleTimeOfExecution, language.formStart._time_of_execution_elements_tool_tip);
+            labelTitleTimeOfExecution.Text = Language.FormStart._time_of_execution_elements_text;
+            toolTipStart.SetToolTip(labelTitleTimeOfExecution, Language.FormStart._time_of_execution_elements_tool_tip);
             labelTimeOfExecution.Left = labelTitleTimeOfExecution.Left + labelTitleTimeOfExecution.Width;
-            toolTipStart.SetToolTip(labelTimeOfExecution, language.formStart._time_of_execution_elements_tool_tip);
+            toolTipStart.SetToolTip(labelTimeOfExecution, Language.FormStart._time_of_execution_elements_tool_tip);
 
-            toolStripStatusLabelStart.Tag = language.formStart._status_label_text;
-            toolStripStatusLabelStart.Text = language.formStart._status_label_text;
+            toolStripStatusLabelStart.Tag = Language.FormStart._status_label_text;
+            toolStripStatusLabelStart.Text = Language.FormStart._status_label_text;
         }
     }
 }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.Text.RegularExpressions;
-using Microsoft.Win32;
+﻿using System.Text.RegularExpressions;
 using KLADR_viewer_v4.management;
 using KLADR_viewer_v4.my_classes;
+using System.Windows.Forms;
+using Microsoft.Win32;
+using System.IO;
+using System;
 
 namespace KLADR_viewer_v4
 {
@@ -21,7 +15,7 @@ namespace KLADR_viewer_v4
             InitializeComponent();
         }
 
-        public bool checkOriginalFolderGNIVC(string folderPatch)
+        public bool CheckOriginalFolderGNIVC(string folderPatch)
         {
             if (textBoxNameFolderDB.Text.Trim() == "")
             {
@@ -42,14 +36,14 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void buttonSelectFolder_Click(object sender, EventArgs e)
+        private void ButtonSelectFolder_Click(object sender, EventArgs e)
         {
             if (progressBarLoader.Style == ProgressBarStyle.Continuous)
                 return;
             RegistryKey regKey = Registry.CurrentUser;
             regKey = regKey.CreateSubKey("Software\\KLADR RU.USA");
             string latest_select_folder = regKey.GetValue("latest_select_folder", "").ToString();
-            if (!checkOriginalFolderGNIVC(latest_select_folder))
+            if (!CheckOriginalFolderGNIVC(latest_select_folder))
             {
                 latest_select_folder = "";
             }
@@ -66,7 +60,7 @@ namespace KLADR_viewer_v4
                 return;
             }
             string fbdSelectedFolder = fbd.SelectedPath + "\\";
-            if (!checkOriginalFolderGNIVC(fbdSelectedFolder))
+            if (!CheckOriginalFolderGNIVC(fbdSelectedFolder))
             {
                 buttonStartTransfer.Enabled = false;
                 MessageBox.Show(this, "The current folder can not be selected (in the selected folder, the files should be: ALTNAMES.DBF, DOMA.DBF, FLAT.DBF, KLADR.DBF, SOCRBASE.DBF, STREET.DBF).", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -79,17 +73,17 @@ namespace KLADR_viewer_v4
             regKey.SetValue("latest_select_folder", fbdSelectedFolder);
         }
 
-        private void textBoxSelectFolder_Click(object sender, EventArgs e)
+        private void TextBoxSelectFolder_Click(object sender, EventArgs e)
         {
             string fbdSelectedPath = textBoxSelectFolder.Text.Trim();
             fbdSelectedPath = Regex.IsMatch(fbdSelectedPath, "\\$") ? fbdSelectedPath : fbdSelectedPath + "\\";
-            if (!checkOriginalFolderGNIVC(fbdSelectedPath))
+            if (!CheckOriginalFolderGNIVC(fbdSelectedPath))
             {
-                buttonSelectFolder_Click(sender, e);
+                ButtonSelectFolder_Click(sender, e);
             }
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void ButtonOK_Click(object sender, EventArgs e)
         {
             buttonSelectFolder.Enabled = false;
             textBoxNameFolderDB.ReadOnly = true;
@@ -102,7 +96,7 @@ namespace KLADR_viewer_v4
 
         private void FormCreateDB_Load(object sender, EventArgs e)
         {
-            buttonStartTransfer.MouseHover += new EventHandler(delegate(object sender_, EventArgs e_) { buttonStartTransfer.Enabled = checkOriginalFolderGNIVC(textBoxSelectFolder.Text); });
+            buttonStartTransfer.MouseHover += new EventHandler(delegate(object sender_, EventArgs e_) { buttonStartTransfer.Enabled = CheckOriginalFolderGNIVC(textBoxSelectFolder.Text); });
             textBoxNameFolderDB.TextChanged += new EventHandler(delegate(object sender_, EventArgs e_)
             {
                 int position = textBoxNameFolderDB.SelectionStart;
@@ -122,25 +116,25 @@ namespace KLADR_viewer_v4
                     textBoxNameFolderDB.Text = (textBoxNameFolderDB.Tag == null || textBoxNameFolderDB.Tag.ToString() == "") ? "" : textBoxNameFolderDB.Tag.ToString();
                 }
                 textBoxNameFolderDB.SelectionStart = position;
-                buttonStartTransfer.Enabled = checkOriginalFolderGNIVC(textBoxSelectFolder.Text);
+                buttonStartTransfer.Enabled = CheckOriginalFolderGNIVC(textBoxSelectFolder.Text);
             });
-            updateLang(null, null);
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            UpdateLang(null, null);
+            Global.RaiseCustomEvent += new EventHandler(UpdateLang);
         }
         
-        private void updateLang(object sender, EventArgs e) 
+        private void UpdateLang(object sender, EventArgs e) 
         {
-            this.Text = language.formCreateDB._window_text;
-            labelNameDataBase.Text = language.formCreateDB._label_name_data_base_text;
-            toolTipCreateNewDataBase.SetToolTip(labelNameDataBase, language.formCreateDB._label_name_data_base_tool_tip);
-            toolTipCreateNewDataBase.SetToolTip(textBoxNameFolderDB, language.formCreateDB._label_name_data_base_tool_tip);
-            labelFolderGNIVC.Text = language.formCreateDB._folder_GNIVC_text;
-            toolTipCreateNewDataBase.SetToolTip(labelFolderGNIVC, language.formCreateDB._folder_GNIVC_tool_tip);
-            toolTipCreateNewDataBase.SetToolTip(textBoxSelectFolder, language.formCreateDB._folder_GNIVC_tool_tip);
-            toolTipCreateNewDataBase.SetToolTip(textBoxLog, language.formCreateDB._text_box_log_tool_tip);
-            buttonStartTransfer.Text = language.formCreateDB._button_start_transfer;
-            buttonClose.Text = language.formCreateDB._button_close;
-            toolTipCreateNewDataBase.SetToolTip(progressBarLoader, language.formCreateDB._text_box_log_tool_tip);
+            this.Text = Language.FormCreateDB.Window_text;
+            labelNameDataBase.Text = Language.FormCreateDB.Label_name_data_base_text;
+            toolTipCreateNewDataBase.SetToolTip(labelNameDataBase, Language.FormCreateDB.Label_name_data_base_tool_tip);
+            toolTipCreateNewDataBase.SetToolTip(textBoxNameFolderDB, Language.FormCreateDB.Label_name_data_base_tool_tip);
+            labelFolderGNIVC.Text = Language.FormCreateDB.Folder_GNIVC_text;
+            toolTipCreateNewDataBase.SetToolTip(labelFolderGNIVC, Language.FormCreateDB.Folder_GNIVC_tool_tip);
+            toolTipCreateNewDataBase.SetToolTip(textBoxSelectFolder, Language.FormCreateDB.Folder_GNIVC_tool_tip);
+            toolTipCreateNewDataBase.SetToolTip(textBoxLog, Language.FormCreateDB.Text_box_log_tool_tip);
+            buttonStartTransfer.Text = Language.FormCreateDB.Button_start_transfer;
+            buttonClose.Text = Language.FormCreateDB.Button_close;
+            toolTipCreateNewDataBase.SetToolTip(progressBarLoader, Language.FormCreateDB.Text_box_log_tool_tip);
         }
     }
 }

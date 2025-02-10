@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace KLADR_viewer_v4
 {
@@ -61,35 +57,27 @@ namespace KLADR_viewer_v4
 
         public KLADR(Community.CsharpSqlite.SQLiteClient.SqliteDataReader reader)
         {
-            this.name = reader["name"].ToString();
-            
+            name = reader["name"].ToString();
+
             try
             {
-                this.korp = reader["korp"].ToString();
+                korp = reader["korp"].ToString();
             }
             catch
             { }
-            this.socr = reader["socr"].ToString();
-            this.post_index = reader["post_index"].ToString();
-            this.code = reader["code"].ToString();
-            this.gninmb = reader["gninmb"].ToString();
-            this.uno = reader["uno"].ToString();
-            this.ocatd = reader["ocatd"].ToString();
-            this.typeObj = reader["typeObj"].ToString();
+            socr = reader["socr"].ToString();
+            post_index = reader["post_index"].ToString();
+            code = reader["code"].ToString();
+            gninmb = reader["gninmb"].ToString();
+            uno = reader["uno"].ToString();
+            ocatd = reader["ocatd"].ToString();
+            typeObj = reader["typeObj"].ToString();
             try
             {
-                this.status = reader["status"].ToString();
+                status = reader["status"].ToString();
             }
             catch
             { }
-            //try
-            //{
-            //    this.existSubElements = reader["existSubElements"].ToString().ToLower() == "0" ? false : true;
-            //}
-            //catch
-            //{
-            //    int i = 0;
-            //}
         }
     }
 }

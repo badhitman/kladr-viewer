@@ -103,8 +103,8 @@ namespace KLADR_viewer_v4
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
-            this.Text += global.preficsBildProgramm;
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            this.Text += Global.preficsBildProgramm;
+            Global.RaiseCustomEvent += new EventHandler(updateLang);
         }
 
         private void updateLang(object sender, EventArgs e) { }

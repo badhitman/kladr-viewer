@@ -33,14 +33,14 @@ namespace KLADR_viewer_v4
                 {
                     formSRCH.Invoke(new loadResultToRowsDelegate(delegate (object message)
                         {
-                            formSRCH.toolStripStatusLabelSearch.Text = language.formSearch._search_in + " " + message.ToString() + " (" + (tn.Index + 1).ToString() + language.formSearch._search_of + totalTreeNodeCount.ToString() + ")";
+                            formSRCH.toolStripStatusLabelSearch.Text = Language.FormSearch.Search_in + " " + message.ToString() + " (" + (tn.Index + 1).ToString() + Language.FormSearch.Search_of + totalTreeNodeCount.ToString() + ")";
                         }), new object[] { tn.Text });
                 }
                 catch
                 {
                     return;
                 }
-                formSTRT.currentDB.search(how, tn.Tag.ToString(), radioButtonAll.Checked ? SearchArea.All : radioButtonCity.Checked ? SearchArea.City : SearchArea.Street);
+                formSTRT.currentDB.Search(how, tn.Tag.ToString(), radioButtonAll.Checked ? SearchArea.All : radioButtonCity.Checked ? SearchArea.City : SearchArea.Street);
                 try
                 {
                     formSRCH.Invoke(new loadResultToRowsDelegate(delegate (object message)
@@ -82,7 +82,7 @@ namespace KLADR_viewer_v4
                 newTN.Tag = ((KLADR)tn.Tag).code.Substring(0, 2);
                 treeViewSearch.Nodes.Add(newTN);
             }
-            this.Text += global.preficsBildProgramm;
+            this.Text += Global.preficsBildProgramm;
         }
 
         private void buttonИскать_Click(object sender, EventArgs e)
@@ -157,37 +157,37 @@ namespace KLADR_viewer_v4
 
         private void FormSearch_Load(object sender, EventArgs e)
         {
-            global.RaiseCustomEvent += new EventHandler(updateLang);
+            Global.RaiseCustomEvent += new EventHandler(updateLang);
             updateLang(null, null);
         }
 
         private void updateLang(object sender, EventArgs e)
         {
-            this.Text = language.formSearch._window_text;
-            labelQuery.Text = language.formSearch._label_qoery_text;
-            toolTipSearch.SetToolTip(labelQuery, language.formSearch._label_qoery_tool_tip);
-            toolTipSearch.SetToolTip(textBoxQuerySearch, language.formSearch._label_qoery_tool_tip);
-            buttonSearch.Text = language.formSearch._button_start_search_text;
-            toolTipSearch.SetToolTip(buttonSearch, language.formSearch._button_start_search_tool_tip);
-            labelWhereLook.Text = language.formSearch._where_look_text;
-            toolTipSearch.SetToolTip(labelWhereLook, language.formSearch._where_look_tool_tip);
-            toolTipSearch.SetToolTip(treeViewSearch, language.formSearch._where_look_tool_tip);
-            toolTipSearch.SetToolTip(buttonDeselectAll, language.formSearch._deselect_all_items_tool_tip);
-            toolTipSearch.SetToolTip(buttonInvertSelect, language.formSearch._invert_select_items_tool_tip);
-            toolTipSearch.SetToolTip(buttonSelectAll, language.formSearch._select_all_items_tool_tip);
-            toolTipSearch.SetToolTip(dataGridViewResultSearch, language.formSearch._grid_view_result_search_tool_tip);
+            this.Text = Language.FormSearch.Window_text;
+            labelQuery.Text = Language.FormSearch.Label_qoery_text;
+            toolTipSearch.SetToolTip(labelQuery, Language.FormSearch.Label_qoery_tool_tip);
+            toolTipSearch.SetToolTip(textBoxQuerySearch, Language.FormSearch.Label_qoery_tool_tip);
+            buttonSearch.Text = Language.FormSearch.Button_start_search_text;
+            toolTipSearch.SetToolTip(buttonSearch, Language.FormSearch.Button_start_search_tool_tip);
+            labelWhereLook.Text = Language.FormSearch.Where_look_text;
+            toolTipSearch.SetToolTip(labelWhereLook, Language.FormSearch.Where_look_tool_tip);
+            toolTipSearch.SetToolTip(treeViewSearch, Language.FormSearch.Where_look_tool_tip);
+            toolTipSearch.SetToolTip(buttonDeselectAll, Language.FormSearch.Deselect_all_items_tool_tip);
+            toolTipSearch.SetToolTip(buttonInvertSelect, Language.FormSearch.Invert_select_items_tool_tip);
+            toolTipSearch.SetToolTip(buttonSelectAll, Language.FormSearch.Select_all_items_tool_tip);
+            toolTipSearch.SetToolTip(dataGridViewResultSearch, Language.FormSearch.Grid_view_result_search_tool_tip);
             //***********************************
             //
-            NameColumn.ToolTipText = language.formStart._name_title_tool_tip;
-            CodeColumn.ToolTipText = language.formStart._code_kladr_tool_tip;
-            IndexColumn.ToolTipText = language.formStart._index_kladr_tool_tip;
-            GNINMBColumn.ToolTipText = language.formStart._gninmb_kladr_tool_tip;
-            UNOColumn.ToolTipText = language.formStart._uno_kladr_tool_tip;
-            OCATDColumn.ToolTipText = language.formStart._ocatd_kladr_tool_tip;
+            NameColumn.ToolTipText = Language.FormStart._name_title_tool_tip;
+            CodeColumn.ToolTipText = Language.FormStart._code_kladr_tool_tip;
+            IndexColumn.ToolTipText = Language.FormStart._index_kladr_tool_tip;
+            GNINMBColumn.ToolTipText = Language.FormStart._gninmb_kladr_tool_tip;
+            UNOColumn.ToolTipText = Language.FormStart._uno_kladr_tool_tip;
+            OCATDColumn.ToolTipText = Language.FormStart._ocatd_kladr_tool_tip;
             //
             //***********************************
-            toolStripStatusLabelSearch.Tag = language.formStart._status_label_text;
-            toolStripStatusLabelSearch.Text = language.formStart._status_label_text;
+            toolStripStatusLabelSearch.Tag = Language.FormStart._status_label_text;
+            toolStripStatusLabelSearch.Text = Language.FormStart._status_label_text;
         }
     }
 }

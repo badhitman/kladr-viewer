@@ -121,7 +121,7 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.файлToolStripMenuItem.Text = "&File";
-            this.файлToolStripMenuItem.DropDownOpening += new System.EventHandler(this.файлToolStripMenuItem_DropDownOpening);
+            this.файлToolStripMenuItem.DropDownOpening += new System.EventHandler(this.ФайлToolStripMenuItem_DropDownOpening);
             // 
             // создатьToolStripMenuItem
             // 
@@ -170,7 +170,7 @@
             this.поискToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.поискToolStripMenuItem1.Text = "&Search";
             this.поискToolStripMenuItem1.ToolTipText = "Find items in the database";
-            this.поискToolStripMenuItem1.Click += new System.EventHandler(this.поискToolStripMenuItem1_Click);
+            this.поискToolStripMenuItem1.Click += new System.EventHandler(this.ПоискToolStripMenuItem1_Click);
             // 
             // kLADRToSQLToolStripMenuItem
             // 
@@ -178,7 +178,7 @@
             this.kLADRToSQLToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.kLADRToSQLToolStripMenuItem.Text = "KL&ADR to &CSV";
             this.kLADRToSQLToolStripMenuItem.ToolTipText = "Convert DBF files to CSV format";
-            this.kLADRToSQLToolStripMenuItem.Click += new System.EventHandler(this.kLADRToSQLToolStripMenuItem_Click);
+            this.kLADRToSQLToolStripMenuItem.Click += new System.EventHandler(this.KLADRToSQLToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -190,7 +190,7 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -208,7 +208,7 @@
             this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
             this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.содержаниеToolStripMenuItem.Text = "&Description";
-            this.содержаниеToolStripMenuItem.Click += new System.EventHandler(this.содержаниеToolStripMenuItem_Click);
+            this.содержаниеToolStripMenuItem.Click += new System.EventHandler(this.СодержаниеToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -253,9 +253,9 @@
             this.treeViewStart.Size = new System.Drawing.Size(174, 335);
             this.treeViewStart.TabIndex = 0;
             this.toolTipStart.SetToolTip(this.treeViewStart, "The object tree classifier address");
-            this.treeViewStart.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewStart_BeforeExpand);
-            this.treeViewStart.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewStart_BeforeSelect);
-            this.treeViewStart.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewStart_AfterSelect);
+            this.treeViewStart.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.TreeViewStart_BeforeExpand);
+            this.treeViewStart.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.TreeViewStart_BeforeSelect);
+            this.treeViewStart.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewStart_AfterSelect);
             // 
             // splitContainerВложенный
             // 
@@ -293,7 +293,7 @@
             this.splitContainerВложенный.Size = new System.Drawing.Size(794, 341);
             this.splitContainerВложенный.SplitterDistance = 170;
             this.splitContainerВложенный.TabIndex = 0;
-            this.splitContainerВложенный.Resize += new System.EventHandler(this.splitContainerВложенный_Resize);
+            this.splitContainerВложенный.Resize += new System.EventHandler(this.SplitContainerВложенный_Resize);
             // 
             // labelName
             // 
@@ -307,7 +307,7 @@
             this.labelName.TabStop = true;
             this.labelName.Text = "-";
             this.toolTipStart.SetToolTip(this.labelName, resources.GetString("labelName.ToolTip"));
-            this.labelName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelName_LinkClicked);
+            this.labelName.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelName_LinkClicked);
             // 
             // contextMenuStripStart
             // 
@@ -315,7 +315,7 @@
             this.toolStripMenuItemCopy});
             this.contextMenuStripStart.Name = "contextMenuStripStart";
             this.contextMenuStripStart.Size = new System.Drawing.Size(103, 26);
-            this.contextMenuStripStart.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStripStart_Opening);
+            this.contextMenuStripStart.Opening += new System.ComponentModel.CancelEventHandler(this.ContextMenuStripStart_Opening);
             // 
             // toolStripMenuItemCopy
             // 
@@ -400,7 +400,7 @@
             this.labelIndex.Text = "-";
             this.toolTipStart.SetToolTip(this.labelIndex, "\"Zip code\" contains the postal code Company postal\r\nservice address this subject." +
         " The length zip - 6 digits");
-            this.labelIndex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelIndex_LinkClicked);
+            this.labelIndex.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LabelIndex_LinkClicked);
             // 
             // labelOcatd
             // 
@@ -603,21 +603,21 @@
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.selectAllToolStripMenuItem.Text = "S&elect all";
-            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.SelectAllToolStripMenuItem_Click);
             // 
             // invertSelectedToolStripMenuItem
             // 
             this.invertSelectedToolStripMenuItem.Name = "invertSelectedToolStripMenuItem";
             this.invertSelectedToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.invertSelectedToolStripMenuItem.Text = "Invert s&election";
-            this.invertSelectedToolStripMenuItem.Click += new System.EventHandler(this.invertSelectedToolStripMenuItem_Click);
+            this.invertSelectedToolStripMenuItem.Click += new System.EventHandler(this.InvertSelectedToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
             // statusStripStart
             // 
@@ -643,7 +643,7 @@
             this.toolStripStatusLabelStart.Size = new System.Drawing.Size(38, 17);
             this.toolStripStatusLabelStart.Tag = "Done.";
             this.toolStripStatusLabelStart.Text = "Done.";
-            this.toolStripStatusLabelStart.TextChanged += new System.EventHandler(this.toolStripStatusLabelStart_TextChanged);
+            this.toolStripStatusLabelStart.TextChanged += new System.EventHandler(this.ToolStripStatusLabelStart_TextChanged);
             // 
             // FormStart
             // 
