@@ -81,7 +81,7 @@
             this.buttonSearch.Text = "Search";
             this.toolTipSearch.SetToolTip(this.buttonSearch, "Start seqrch");
             this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonИскать_Click);
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonИскать_Click);
             // 
             // labelQuery
             // 
@@ -109,7 +109,7 @@
             this.toolTipSearch.SetToolTip(this.textBoxQuerySearch, "By default the search is case insensitive, but it is possible to search using T-S" +
         "QL expression and case sensitive \r\n(you put the expression in curly braces {}. E" +
         "xample {mySearchQueryCity ___}).");
-            this.textBoxQuerySearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxИскать_KeyDown);
+            this.textBoxQuerySearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxИскать_KeyDown);
             // 
             // dataGridViewResultSearch
             // 
@@ -221,7 +221,7 @@
             this.buttonDeselectAll.TabIndex = 8;
             this.toolTipSearch.SetToolTip(this.buttonDeselectAll, "Unselect all regions");
             this.buttonDeselectAll.UseVisualStyleBackColor = false;
-            this.buttonDeselectAll.Click += new System.EventHandler(this.buttonUnselectAll_Click);
+            this.buttonDeselectAll.Click += new System.EventHandler(this.ButtonUnselectAll_Click);
             // 
             // buttonInvertSelect
             // 
@@ -234,7 +234,7 @@
             this.buttonInvertSelect.TabIndex = 9;
             this.toolTipSearch.SetToolTip(this.buttonInvertSelect, "Invert select regions");
             this.buttonInvertSelect.UseVisualStyleBackColor = false;
-            this.buttonInvertSelect.Click += new System.EventHandler(this.buttonInvertSelect_Click);
+            this.buttonInvertSelect.Click += new System.EventHandler(this.ButtonInvertSelect_Click);
             // 
             // buttonSelectAll
             // 
@@ -247,7 +247,7 @@
             this.buttonSelectAll.TabIndex = 10;
             this.toolTipSearch.SetToolTip(this.buttonSelectAll, "Select all regions");
             this.buttonSelectAll.UseVisualStyleBackColor = false;
-            this.buttonSelectAll.Click += new System.EventHandler(this.buttonSelectAll_Click);
+            this.buttonSelectAll.Click += new System.EventHandler(this.ButtonSelectAll_Click);
             // 
             // statusStripSearch
             // 
@@ -270,7 +270,7 @@
             this.toolStripStatusLabelSearch.Name = "toolStripStatusLabelSearch";
             this.toolStripStatusLabelSearch.Size = new System.Drawing.Size(38, 17);
             this.toolStripStatusLabelSearch.Text = "Done.";
-            this.toolStripStatusLabelSearch.TextChanged += new System.EventHandler(this.toolStripStatusLabelSearch_TextChanged);
+            this.toolStripStatusLabelSearch.TextChanged += new System.EventHandler(this.ToolStripStatusLabelSearch_TextChanged);
             // 
             // radioButtonCity
             // 

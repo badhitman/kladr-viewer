@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using KLADR_viewer_v4.my_classes;
@@ -18,11 +13,10 @@ namespace KLADR_viewer_v4
         searchMethodDelegate searchMethodDelegateObject;
 
         private delegate void loadResultToRowsDelegate(object message);
-        loadResultToRowsDelegate loadResultToRowsDelegateObj;
 
-        public delegate void UpdateStatus(FormStart invokeForm);
+        public delegate void UpdateStatus(FormSearch invokeForm);
 
-        private void loadResultToRowsFunction(string how, FormSearch formSRCH, FormStart formSTRT)
+        private void LoadResultToRowsFunction(string how, FormSearch formSRCH, FormStart formSTRT)
         {
             int totalTreeNodeCount = formSRCH.treeViewSearch.Nodes.Count;
             foreach (TreeNode tn in formSRCH.treeViewSearch.Nodes)
@@ -73,19 +67,21 @@ namespace KLADR_viewer_v4
         public FormSearch(FormStart ownerForm)
         {
             InitializeComponent();
-            searchMethodDelegateObject = new searchMethodDelegate(loadResultToRowsFunction);
+            searchMethodDelegateObject = new searchMethodDelegate(LoadResultToRowsFunction);
             toolStripStatusLabelSearch.Tag = toolStripStatusLabelSearch.Text;
             this.Owner = ownerForm;
             foreach (TreeNode tn in ownerForm.treeViewStart.Nodes)
             {
-                TreeNode newTN = new TreeNode(tn.Text);
-                newTN.Tag = ((KLADR)tn.Tag).code.Substring(0, 2);
+                TreeNode newTN = new TreeNode(tn.Text)
+                {
+                    Tag = ((KLADR)tn.Tag).code.Substring(0, 2)
+                };
                 treeViewSearch.Nodes.Add(newTN);
             }
             this.Text += Global.preficsBildProgramm;
         }
 
-        private void buttonИскать_Click(object sender, EventArgs e)
+        private void ButtonИскать_Click(object sender, EventArgs e)
         {
             this.Text = new Regex(@"\s+-\s+\d+\s+\w+$").Replace(this.Text, "");
             toolStripStatusLabelSearch.Text = "search run...";
@@ -95,7 +91,7 @@ namespace KLADR_viewer_v4
             searchMethodDelegateObject.BeginInvoke(textBoxQuerySearch.Text, this, fs, null, null);
         }
 
-        private void buttonUnselectAll_Click(object sender, EventArgs e)
+        private void ButtonUnselectAll_Click(object sender, EventArgs e)
         {
             foreach (TreeNode tn in treeViewSearch.Nodes)
             {
@@ -103,7 +99,7 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void buttonInvertSelect_Click(object sender, EventArgs e)
+        private void ButtonInvertSelect_Click(object sender, EventArgs e)
         {
             foreach (TreeNode tn in treeViewSearch.Nodes)
             {
@@ -111,7 +107,7 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void buttonSelectAll_Click(object sender, EventArgs e)
+        private void ButtonSelectAll_Click(object sender, EventArgs e)
         {
             foreach (TreeNode tn in treeViewSearch.Nodes)
             {
@@ -119,17 +115,17 @@ namespace KLADR_viewer_v4
             }
         }
 
-        private void textBoxИскать_KeyDown(object sender, KeyEventArgs e)
+        private void TextBoxИскать_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
             {
-                buttonИскать_Click(sender, new EventArgs());
+                ButtonИскать_Click(sender, new EventArgs());
             }
         }
 
-        private void toolStripStatusLabelSearch_TextChanged(object sender, EventArgs e)
+        private void ToolStripStatusLabelSearch_TextChanged(object sender, EventArgs e)
         {
-            this.Invoke(new UpdateStatus(delegate (FormStart invokeForm2)
+            this.Invoke(new UpdateStatus(delegate (FormSearch invokeForm2)
             {
                 if (toolStripStatusLabelSearch.Text != toolStripStatusLabelSearch.Tag.ToString())
                 {
