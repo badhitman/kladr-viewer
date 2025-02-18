@@ -53,7 +53,7 @@ namespace KLADR_viewer_v4
                     invokeForm2.dataGridViewДетали.Rows.Clear();
                     invokeForm2.treeViewStart.Nodes.Clear();
                 }), new object[] { this });
-                
+
                 IEnumerable<KeyValuePair<string, KLADR>> sortedRegions =
                 from k in currentDB.KladrElements
                 orderby k.Value.name ascending
@@ -353,7 +353,7 @@ namespace KLADR_viewer_v4
 
         private void FormStart_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.notCloseForm)
+            if (notCloseForm)
                 e.Cancel = true;
         }
 
@@ -374,7 +374,7 @@ namespace KLADR_viewer_v4
         private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.SetDataObject(
-                    this.dataGridViewДетали.GetClipboardContent());
+                    dataGridViewДетали.GetClipboardContent());
         }
 
         private void FormStart_Load(object sender, EventArgs e)
@@ -397,13 +397,13 @@ namespace KLADR_viewer_v4
             создатьToolStripMenuItem.Click += new EventHandler(delegate (object _sender, EventArgs _e) { new FormCreateDB().ShowDialog(); });
             currentDB = new management.WorkDataBase();
 
-            UpdateLang(this.Controls, null);
+            UpdateLang(Controls, null);
             Global.RaiseCustomEvent += new EventHandler(UpdateLang);
         }
 
         private void UpdateLang(object sender, EventArgs e)
         {
-            this.Text = Language.FormStart.TextWindow;
+            Text = Language.FormStart.TextWindow;
 
 
             файлToolStripMenuItem.Text = Language.FormStart.File_text;

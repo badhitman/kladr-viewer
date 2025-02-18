@@ -87,7 +87,7 @@ namespace KLADR_viewer_v4
             toolStripStatusLabelSearch.Text = "search run...";
             dataGridViewResultSearch.Rows.Clear();
             toolStripStatusLabelSearch.Text = textBoxQuerySearch.Text;
-            FormStart fs = ((FormStart)this.Owner);
+            FormStart fs = (FormStart)Owner;
             searchMethodDelegateObject.BeginInvoke(textBoxQuerySearch.Text, this, fs, null, null);
         }
 
@@ -125,7 +125,7 @@ namespace KLADR_viewer_v4
 
         private void ToolStripStatusLabelSearch_TextChanged(object sender, EventArgs e)
         {
-            this.Invoke(new UpdateStatus(delegate (FormSearch invokeForm2)
+            Invoke(new UpdateStatus(delegate (FormSearch invokeForm2)
             {
                 if (toolStripStatusLabelSearch.Text != toolStripStatusLabelSearch.Tag.ToString())
                 {
@@ -153,13 +153,13 @@ namespace KLADR_viewer_v4
 
         private void FormSearch_Load(object sender, EventArgs e)
         {
-            Global.RaiseCustomEvent += new EventHandler(updateLang);
-            updateLang(null, null);
+            Global.RaiseCustomEvent += new EventHandler(UpdateLang);
+            UpdateLang(null, null);
         }
 
-        private void updateLang(object sender, EventArgs e)
+        private void UpdateLang(object sender, EventArgs e)
         {
-            this.Text = Language.FormSearch.Window_text;
+            Text = Language.FormSearch.Window_text;
             labelQuery.Text = Language.FormSearch.Label_qoery_text;
             toolTipSearch.SetToolTip(labelQuery, Language.FormSearch.Label_qoery_tool_tip);
             toolTipSearch.SetToolTip(textBoxQuerySearch, Language.FormSearch.Label_qoery_tool_tip);

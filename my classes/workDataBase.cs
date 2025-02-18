@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Community.CsharpSqlite.SQLiteClient;
 using System.Data;
-using System.Data.Common;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections;
@@ -12,15 +11,11 @@ namespace KLADR_viewer_v4.management
     public class WorkDataBase
     {
         #region variables
-        private SqliteConnection mySQLITEConnection;
-        private SqliteCommand mySQLITECommand;
+        private readonly SqliteConnection mySQLITEConnection;
+        private readonly SqliteCommand mySQLITECommand;
         private SqliteDataReader mySQLITEReader;
-        private SqliteDataAdapter mySQLITEDataAdapter;
-        private DataSet mySQLITEDataSet;
-        private DbTransaction mySQLITETransaction;
-
-        DictionaryConnections regionsDataBases = new DictionaryConnections();
-        Dictionary<string, SqliteCommand> regionsDBCommands = new Dictionary<string, SqliteCommand>();
+        private readonly DictionaryConnections regionsDataBases = new DictionaryConnections();
+        private readonly Dictionary<string, SqliteCommand> regionsDBCommands = new Dictionary<string, SqliteCommand>();
 
         public Dictionary<string, KLADR> KladrElements;
         public delegate void updateStatusLabelStartFormDelegate(string newStatus, FormStart invokeForm);
